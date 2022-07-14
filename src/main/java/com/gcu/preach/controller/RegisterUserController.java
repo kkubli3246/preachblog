@@ -1,4 +1,5 @@
-package com.gcu.controller;
+package com.gcu.preach.controller;
+
 
 import javax.validation.Valid;
 
@@ -9,11 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gcu.model.LoginModel;
+import com.gcu.preach.model.RegisterModel;
+
 
 @Controller
-@RequestMapping("/login")
-public class LoginUserController {
+@RequestMapping("/register")
+public class RegisterUserController {
 	
 	
 	@GetMapping("/")
@@ -21,22 +23,22 @@ public class LoginUserController {
 		
 		// Display login form view
 		model.addAttribute("message1", "Welcome to Preach Blog");
-		model.addAttribute("message2", "Login");
-		model.addAttribute("loginModel", new LoginModel());
+		model.addAttribute("message2", "Register");
+		model.addAttribute("registerModel", new RegisterModel());
 	
-		return "login";
+		return "register";
 	}
 	
-	@PostMapping("/doLogin")
-	public String doRegister(@Valid LoginModel loginModel, BindingResult bindingresult, Model model) {
+	@PostMapping("/doRegister")
+	public String doRegister(@Valid RegisterModel registerModel, BindingResult bindingresult, Model model) {
 		
 		if(bindingresult.hasErrors()) {
-			model.addAttribute("title", "Login");
-			return "login";
+			model.addAttribute("title", "Register Form");
+			return "register";
 		}
 		
 		
 		return "index";
 	}
-
+	
 }
