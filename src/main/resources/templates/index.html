@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmls:th="http://www.thymeleaf.org" xmls:layout="jttp://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="http://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
   <head>
     <meta charset="UTF-8">
     <title>Home</title>
-		
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
   </head>
   <body>
   	<div layout:fragment="content">
   		<h1 align="center">This is the home page</h1>
+  		<div align="center"><p><h3  th:text="${loggedInMessage}">Welcom</h3><h3 th:text="${loggedInUserName}">sadf</h3><p></div>
+        <h1>Red</h1>
   	</div>
 	
   </body>
