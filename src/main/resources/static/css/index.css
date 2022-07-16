@@ -1,3 +1,22 @@
-h1{
-    color: red;
+.logged-in-message{
+    width: 100%;
+    height: auto;
+    color: darkmagenta;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+
+}
+
+.post-preview-content-text{
+    font-style: italic;
+    padding-left: 20px;
+}
+
+.post-author {
+    font-weight: bold;
+    font-style: italic;
 }

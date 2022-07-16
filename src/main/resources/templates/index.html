@@ -7,10 +7,43 @@
   </head>
   <body>
   	<div layout:fragment="content">
-  		<h1 align="center">This is the home page</h1>
-  		<div align="center"><p><h3  th:text="${loggedInMessage}">Welcom</h3><h3 th:text="${loggedInUserName}">sadf</h3><p></div>
-        <h1>Red</h1>
+        <div class="content__welcome-message">
+            <h1 class="logged-in-message" th:text="${loggedInMessage}">This is the home page</h1>
+        </div>
+        <div class="body-content">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- Post preview-->
+                       <table th:each="blogPost: ${blogPosts}">
+                           <tr>
+                               <td>
+                                   <a href="post.html">
+                                       <h2 class="post-title" th:text="${blogPost.getTitle}">Man must explore, and this is exploration at its greatest</h2>
+                                   </a>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <p  class="post-preview-content-text" th:text="${blogPost.getContent}">Problems look mighty small from 150 miles up</p>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <p class="post-meta">
+                                       Posted by
+                                       <span class="post-author" th:text="${blogPost.getAuthor}"> Author </span>
+                                       on <span th:text="${blogPost.getDate}">September 24, 2022</span>
+                                   </p>
+                                   <hr class="my-4" />
+                               </td>
+                           </tr>
+                       </table>
+                    </div>
+                </div>
+            </div>
+        </div>
   	</div>
-	
+
   </body>
 </html>
