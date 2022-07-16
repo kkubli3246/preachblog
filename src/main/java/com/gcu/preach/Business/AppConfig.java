@@ -4,12 +4,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class BlogPostConfig {
+public class AppConfig {
 
-    @Bean(name = "blogPostService")
+    @Bean(name = "blogPostsBusinessService", initMethod = "getAllBlogPosts")
     BlogPostsBusinessService getBlogPostService() {
         return new BlogPostsBusinessService();
     }
+
 
 }
 

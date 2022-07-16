@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @Autowired
-    private BlogPostsBusinessInterface blogPostsBusiness;
+    private BlogPostsBusinessInterface blogPostsBusinessService;
 
     @GetMapping("/")
     public String display( Model model) {
@@ -20,7 +20,7 @@ public class IndexController {
         // Display login form view
         model.addAttribute("loggedInMessage", "Welcome to Preach Blog admin");
         model.addAttribute("sideBarHeader", "Search");
-        model.addAttribute("blogPosts", blogPostsBusiness.getAllBlogPosts());
+        model.addAttribute("blogPosts", blogPostsBusinessService.getAllBlogPosts());
 
         return "index";
     }
