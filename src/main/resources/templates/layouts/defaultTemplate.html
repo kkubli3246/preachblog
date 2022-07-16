@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmls:th="http://www.thymeleaf.org" xmls:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.ultraq.net.nz/thymeleaf/layout" >
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial=scale=1">
@@ -15,13 +15,18 @@
   	
   </head>
   <body>
-		<div align="center">
-			<div th:replace="layouts/common :: header">My Header</div>
-			<section layout:fragment="content">
-				<p>My body contents</p>
-			</section>
-			
-			<div th:replace="layouts/common :: footer">My Footer</div>
-		</div>
+
+        <div th:replace="layouts/common :: header">My Header</div>
+        <section layout:fragment="content">
+            <div class="body-content">
+                <div class="body-content__sidebar">
+                    <h1>search</h1>
+                </div>
+            </div>
+
+        </section>
+
+        <div th:replace="layouts/common :: footer">My Footer</div>
+
   </body>
 </html>

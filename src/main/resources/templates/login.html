@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html xmls:th="http://www.thymeleaf.org" xmls:layout="jttp://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
   <head>
-    <meta charset="UTF-8">
-    <title>Register User</title>
-	
-	
+	<meta charset="UTF-8">
+	<title>Register User</title>
+	<link rel="stylesheet" href="../static/css/login.css" th:href="@{/css/login.css}">
+
+
   </head>
-  <body>  	
+  <body>
   	<div layout:fragment="content">
-		<h2 th:text="${message1}">Welcome to the login page</h2><br/>
-		<h2 th:text="${message2}">Welcome to the login page</h2><br/>
-		<form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
-			<table>
-				<tr>
-					<td>User Name:</td><td><input type="text" th:field="*{userName}" ></td>
-					<td><h5 style="color:red" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">User Name Error</h5></td>
-				</tr>
-				<tr>
-					<td>Password:</td><td><input type="text" th:field="*{password}" ></td>
-					<td><h5 style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h5></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Submit"/></td>
-				</tr>
-			</table>
-			<div th:if="${#fields.errors('*')}"></div>
-			<div th:each="err : ${#fields.errors('*')}">
-				<span style="color:red" th:text="${err}" class="fieldError"></span>
-			</div>
-		</form>
+		<div class="loginContent">
+
+			<h1 th:text="${message3}">Login Failed Default Message</h1>
+			<h2 th:text="${message1}">Welcome to the login page</h2>
+			<h2 th:text="${message2}">Welcome to the login page</h2>
+			<form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
+				<table>
+					<tr>
+						<td>User Name:</td><td><input type="text" th:field="*{userName}" ></td>
+					</tr>
+					<tr>
+						<td>Password:</td><td><input type="text" th:field="*{password}" ></td>
+					</tr>
+					<tr>
+						<td align="center "colspan="2"><input type="submit" value="Sign In" style="margin-top: 20px;"/></td>
+					</tr>
+				</table>
+				<div th:if="${#fields.errors('*')}"></div>
+				<div th:each="err : ${#fields.errors('*')}">
+					<span style="color:red" th:text="${err}" class="fieldError"></span>
+				</div>
+			</form>
+
+		</div>
+
 	</div>
 	
 

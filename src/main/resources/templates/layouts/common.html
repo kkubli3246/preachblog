@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmls:th="http://www.thymeleaf.org" xmls:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.ultraq.net.nz/thymeleaf/layout" >
   <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -12,9 +12,9 @@
 		      		<a class="navbar-brand " href="#">Preach Blog</a>
 		    	</div>
 			    <ul class="nav navbar-nav">
-			      	<li class="active"><a href="/">Feed</a></li>
-			      	<li><a href="#">My Pofile</a></li>
-			     	<li><a href="#">Post a Blog</a></li>
+			      	<li class="active"><a href="/index/">Feed</a></li>
+			      	<li><a href="#">My Profile</a></li>
+			     	<li><a href="#">Preach</a></li>
 			    </ul>
 			    <ul class="nav navbar-nav navbar-right">
 			      	<li><a href="/register/"><span class="glyphicon glyphicon-user"></span> Register</a></li>
@@ -24,7 +24,9 @@
 		</nav>
   	</div>
   	<div th:fragment="footer">
-  		<h5 style="color:purple; text-align: center; position: fixed; bottom: 0; width: 100%;">Copyright 2022 Preach Blog Inc.</h5>
+		<footer class="container-fluid bg-4 text-center">
+			<div>© 2022 Copyright: Preach Blog Inc.</div>
+		</footer>
   	</div>
   </body>
 </html>
