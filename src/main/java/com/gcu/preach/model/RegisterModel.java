@@ -20,7 +20,7 @@ public class RegisterModel {
 
 	@NotNull(message="User name field cannot be empty!")
 	@Size(min=1, max=32, message="Your user name must be between 1 and 32 characters long!")
-	private String userUserName;
+	private String userName;
 
 	@NotNull(message="User name field cannot be empty!")
 	@Size(min=1, max=32, message="Your password must be between 1 and 32 characters long!")
@@ -79,12 +79,12 @@ public class RegisterModel {
 		this.userEmail = userEmail;
 	}
 
-	public String getUserUserName() {
-		return userUserName;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUserUserName(String userUserName) {
-		this.userUserName = userUserName;
+	public void setUserName(String useName) {
+		this.userName = userName;
 	}
 
 	public String getUserPassword() {

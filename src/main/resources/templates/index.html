@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmls:th="http://www.thymeleaf.org" xmls:layout="http://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
   <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -18,14 +18,14 @@
                        <table th:each="blogPost: ${blogPosts}">
                            <tr>
                                <td>
-                                   <a href="post.html">
+                                   <a th:href="@{'/fullpost/' + ${blogPost.id}}">
                                        <h2 class="post-title" th:text="${blogPost.getTitle}">Man must explore, and this is exploration at its greatest</h2>
                                    </a>
                                </td>
                            </tr>
                            <tr>
                                <td>
-                                   <p  class="post-preview-content-text" th:text="${blogPost.getContent}">Problems look mighty small from 150 miles up</p>
+                                   <p  class="post-preview-content-text" th:text="${blogPost.getContentPreview}">Problems look mighty small from 150 miles up</p>
                                </td>
                            </tr>
                            <tr>

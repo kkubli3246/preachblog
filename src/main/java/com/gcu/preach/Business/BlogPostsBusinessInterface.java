@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface BlogPostsBusinessInterface {
 
-    public List<BlogPost> getAllBlogPosts();
+     List<BlogPost> getAllBlogPosts();
+
 }

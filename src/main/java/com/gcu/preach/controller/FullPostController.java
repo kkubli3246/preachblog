@@ -5,22 +5,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/index")
-public class IndexController {
+@RequestMapping("/fullpost")
+public class FullPostController {
 
     @Autowired
     private BlogPostsBusinessInterface blogPostsBusinessService;
 
-    @GetMapping("/")
-    public String display( Model model) {
+    @GetMapping("/{id}")
+    public String getPost(@PathVariable int id, Model model) {
 
-        // Display login form view
-        model.addAttribute("loggedInMessage", "Welcome to Preach Blog admin");
-        model.addAttribute("blogPosts", blogPostsBusinessService.getAllBlogPosts());
-
-        return "index";
+        // Display Full Blog Post form view
+        model.addAttribute("blogPost", blogPostsBusinessService.getAllBlogPosts().get(id));
+        return "fullpost";
     }
 }

@@ -1,19 +1,19 @@
 package com.gcu.preach.model;
 
-import java.util.Date;
-
 public class BlogPost {
 
     private int id;
     private String title;
-    private String content;
+    private String contentPreview;
+    private String fullContent;
     private String author;
     private String date;
 
-    public BlogPost(int id, String title, String content, String author, String date) {
+    public BlogPost(int id, String title, String contentPreview, String fullContent, String author, String date) {
         this.id = id;
         this.title = title;
-        this.content = content;
+        this.contentPreview = contentPreview;
+        this.fullContent = fullContent;
         this.author = author;
         this.date = date;
     }
@@ -34,12 +34,20 @@ public class BlogPost {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getContentPreview() {
+        return contentPreview;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContentPreview(String contentPreview) {
+        this.contentPreview = contentPreview;
+    }
+
+    public String getFullContent() {
+        return fullContent;
+    }
+
+    public void setFullContent(String fullContent) {
+        this.fullContent = fullContent;
     }
 
     public String getAuthor() {
