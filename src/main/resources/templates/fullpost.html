@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xml:lang="en" xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/fullPost.css" th:href="@{/css/fullPost.css}">
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="body-content">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class=" col-xl-7 ">
+                    <!-- Post preview-->
+                    <table>
+                        <tr>
+                            <td>
+                                <h2 class="post-title" th:text="${blogPost.getTitle}">Man must explore, and this is exploration at its greatest</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="post-meta">
+                                    Posted by
+                                    <span class="post-author" th:text="${blogPost.getAuthor}"> Author </span>
+                                    on <span th:text="${blogPost.getDate}">September 24, 2022</span>
+                                </p>
+                                <hr class="my-4" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p  class="post-full-content-text" th:text="${blogPost.getFullContent}">Problems look mighty small from 150 miles up</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -8,9 +8,4 @@ public interface BlogPostsBusinessInterface {
 
      List<BlogPost> getAllBlogPosts();
 
-     List<BlogPost> getMyBlogPosts(String username);
-
-
-
-
 }

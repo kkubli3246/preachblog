@@ -1,0 +1,18 @@
+.post-title {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.post-full-content-text{
+    font-style: italic;
+    padding-left: 20px;
+}
+
+.post-meta {
+    padding-left: 10px;
+}
+
+.post-author {
+    font-weight: bold;
+    font-style: italic;
+}

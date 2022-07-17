@@ -11,6 +11,5 @@ public class AppConfig {
         return new BlogPostsBusinessService();
     }
 
-
 }
 
