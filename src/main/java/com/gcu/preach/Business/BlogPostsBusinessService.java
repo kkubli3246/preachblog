@@ -441,7 +441,7 @@ public class BlogPostsBusinessService implements BlogPostsBusinessInterface {
     }
 
     @Override
-    public List<BlogPost> addBlogPost(List<BlogPost> blogPosts) {
+    public List<BlogPost> addBlogPost(BlogPost blogPost) {
         return null;
     }
 }

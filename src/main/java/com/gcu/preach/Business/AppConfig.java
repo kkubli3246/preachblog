@@ -10,10 +10,11 @@ import org.springframework.web.context.annotation.SessionScope;
 public class AppConfig {
 
 
-    @Bean(name = "blogPostsBusinessService", initMethod = "getAllBlogPosts")
+    @Bean(name = "blogPostsBusinessService")
     BlogPostsBusinessService getBlogPostService() {
         return new BlogPostsBusinessService();
     }
+
 
 
     @Bean(name = "userBusinessService")
