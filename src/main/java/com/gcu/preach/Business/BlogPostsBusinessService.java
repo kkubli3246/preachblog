@@ -439,4 +439,9 @@ public class BlogPostsBusinessService implements BlogPostsBusinessInterface {
                 "Unknown"));
         return blogPosts;
     }
+
+    @Override
+    public List<BlogPost> addBlogPost(List<BlogPost> blogPosts) {
+        return null;
+    }
 }

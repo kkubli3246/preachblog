@@ -8,4 +8,7 @@ public interface BlogPostsBusinessInterface {
 
      List<BlogPost> getAllBlogPosts();
 
+     List<BlogPost> addBlogPost(List<BlogPost> blogPosts);
+
+
 }
