@@ -3,8 +3,14 @@ package com.gcu.preach.controller;
 
 import javax.validation.Valid;
 
+import com.gcu.preach.Business.AppConfig;
 import com.gcu.preach.Business.UserBusinessServiceInterface;
+import org.apache.catalina.core.ApplicationContext;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,7 +23,7 @@ import com.gcu.preach.model.RegisterModel;
 
 @Controller
 @RequestMapping("/register")
-public class RegisterUserController {
+public class RegisterUserController{
 
 	@Autowired
 	private UserBusinessServiceInterface security;
@@ -35,7 +41,9 @@ public class RegisterUserController {
 	
 	@PostMapping("/doRegister")
 	public String doRegister(@Valid RegisterModel registerModel, BindingResult bindingresult, Model model) {
-		
+
+
+
 		if(bindingresult.hasErrors()) {
 			model.addAttribute("title", "Register Form");
 			return "register";
@@ -51,5 +59,6 @@ public class RegisterUserController {
 			return "register";
 		}
 	}
-	
+
+
 }
