@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlogPostsBusinessService implements BlogPostsBusinessInterface {
-
-
+public static List<BlogPost> blogPosts = new ArrayList<>();
     @Override
     public List<BlogPost> getAllBlogPosts() {
+        return blogPosts;
+    }
+    @Override
+    public List<BlogPost> createBlogPosts() {
 
-        List<BlogPost> blogPosts = new ArrayList<>();
         blogPosts.add(new BlogPost(0, "Exhortation to Walk as Christians", "When God was about to lead the Israelites" +
                 " out of Egypt, he commanded, shortly before their departure, that they should eat the Passover the " +
                 "night they started; and as a perpetual memorial of their redemption, they were annually, on the " +
@@ -441,7 +443,12 @@ public class BlogPostsBusinessService implements BlogPostsBusinessInterface {
     }
 
     @Override
-    public List<BlogPost> addBlogPost(BlogPost blogPost) {
-        return null;
+    public void addBlogPost(BlogPost blogPost) {
+        blogPosts.add(blogPost);
+    }
+
+    @Override
+    public int getSize() {
+        return blogPosts.size();
     }
 }

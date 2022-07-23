@@ -1,12 +1,51 @@
 <!DOCTYPE html>
-<html xml:lang="en" xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="jttps://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../static/css/postBlog.css" th:href="@{/css/postBlog.css}">
+    <link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+
 </head>
 <body>
     <div layout:fragment="content">
+        <div class=""postBlogContent>
+            <div class="content__welcome-message">
+                <h1 class="header-message" th:text="${headerText}">This is the home page</h1>
+            </div>
 
-    </div>
+            <form action="#" th:action="@{doPost}" th:object="${blogPost}" method="post">
+                <table>
+                    <tr>
+                        <td><input type="text" th:field="*{id}" th:placeholder="${blogID}"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" th:field="*{title}" placeholder="Title"></td>
+                    </tr>
+                    <tr>
+                        <td><textarea type="text" th:field="*{contentPreview}" placeholder="Preview Text"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><textarea type="text" th:field="*{fullContent}" placeholder="Full Text"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" th:field="*{author}" placeholder="Author Name"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" th:field="*{date}" placeholder="Date"></td>
+                    </tr>
+                    <tr>
+                        <td align="center "colspan="2"><input type="submit" value="Preach" style="margin-top: 20px;"/></td>
+                    </tr>
+                </table>
+                <div th:if="${#fields.errors('*')}"></div>
+                <div th:each="err : ${#fields.errors('*')}">
+                    <span style="color:red" th:text="${err}" class="fieldError"></span>
+                </div>
+            </form>
+        </div>
+
+        </div>
+
 </body>
 </html>
