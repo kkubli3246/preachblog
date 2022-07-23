@@ -5,10 +5,11 @@ import com.gcu.preach.model.BlogPost;
 import java.util.List;
 
 public interface BlogPostsBusinessInterface {
+    List<BlogPost> createBlogPosts();
+    List<BlogPost> getAllBlogPosts();
 
-     List<BlogPost> getAllBlogPosts();
-
-     List<BlogPost> addBlogPost(BlogPost blogPost);
+    void addBlogPost(BlogPost blogPost);
 
 
+    int getSize();
 }

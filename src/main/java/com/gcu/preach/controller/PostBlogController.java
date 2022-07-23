@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+
+import static com.gcu.preach.Business.BlogPostsBusinessService.blogPosts;
 
 @Controller
 @RequestMapping("/postBlog")
@@ -19,18 +22,19 @@ public class PostBlogController {
     @Autowired
     private BlogPostsBusinessInterface blogPostsBusinessService;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String display(Model model) {
         // Display post blog form view
-
+        model.addAttribute("title", "Preach It!!");
+        model.addAttribute("blogPost", new BlogPost());
+        model.addAttribute("blogID", blogPosts.size());
         return "postBlog";
     }
 
     @PostMapping("/doPost")
     public String doPost(@Valid BlogPost blogPost, BindingResult bindingresult, Model model) {
         if(bindingresult.hasErrors()) {
-            model.addAttribute("title", "Preach It!!");
-            model.addAttribute("loggedInMessage", "Welcome ");
+            model.addAttribute("headerText", "Preach It!!");
             return "postBlog";
         }
         else {

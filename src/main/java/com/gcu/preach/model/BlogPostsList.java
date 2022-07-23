@@ -14,4 +14,6 @@ public class BlogPostsList {
     public void setBlogPostsList(List<BlogPost> blogPostsList) {
         this.blogPostsList = blogPostsList;
     }
+
+
 }
