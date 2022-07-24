@@ -17,9 +17,9 @@ import com.gcu.preach.model.LoginModel;
 @Controller
 @RequestMapping("/login")
 public class LoginUserController {
-
+	public static String userName = "";
 	@Autowired
-	private UserBusinessServiceInterface security;
+	public UserBusinessServiceInterface security;
 
 	@Autowired
 	private BlogPostsBusinessInterface blogPostsBusinessService;
@@ -45,6 +45,7 @@ public class LoginUserController {
 		}
 		else if(security.authenticateUser(loginModel.getUserName(), loginModel.getPassword())) {
 			blogPostsBusinessService.createBlogPosts();
+			userName = loginModel.getUserName();
 			return "redirect:/index/";
 		} else {
 			model.addAttribute("message3", "Login Failed");

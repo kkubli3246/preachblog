@@ -10,15 +10,14 @@
     padding: 20px;
 }
 
-.body-content{
-    margin-bottom: 100px;
-}
+.preach-form {
 
-
-#row_style {
-    margin-top: 30px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
 }
-#submit {
-    display: block;
-    margin: auto;
+.form-group-redact {
+
+    margin-left: -15px;
 }

@@ -8,7 +8,12 @@
   <body>
   	<div layout:fragment="content">
         <div class="content__welcome-message">
-            <h1 class="logged-in-message" th:text="${loggedInMessage}">This is the home page</h1>
+
+            <h1 class="logged-in-message">
+                <span  th:text="${loggedInMessage}">Welcome to the home page</span>
+                <span  class="userName" th:if="${userName} != null" th:text="${userName}">User Name or Login Prompt</span>
+                <span id="loginPrompt" class="userName" th:if="${userName} == ''" th:text="${loginPrompt}">User Name or Login Prompt</span>
+            </h1>
         </div>
         <div class="body-content">
             <div class="container px-4 px-lg-5">

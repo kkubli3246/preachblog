@@ -5,6 +5,7 @@ import javax.validation.Valid;
 
 import com.gcu.preach.Business.AppConfig;
 import com.gcu.preach.Business.UserBusinessServiceInterface;
+import com.gcu.preach.model.UserModel;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -34,13 +35,13 @@ public class RegisterUserController{
 		// Display login form view
 		model.addAttribute("message1", "Welcome to Preach Blog");
 		model.addAttribute("message2", "Register");
-		model.addAttribute("registerModel", new RegisterModel());
+		model.addAttribute("userModel", new UserModel());
 	
 		return "register";
 	}
 	
 	@PostMapping("/doRegister")
-	public String doRegister(@Valid RegisterModel registerModel, BindingResult bindingresult, Model model) {
+	public String doRegister(@Valid UserModel userModel, BindingResult bindingresult, Model model) {
 
 
 
@@ -49,9 +50,8 @@ public class RegisterUserController{
 			return "register";
 		}
 
-		else if(security.registerUser(registerModel.getUserName(), registerModel.getUserPassword())) {
-
-			return "redirect:/index/";
+		else if(security.registerUser(userModel) != null) {
+			return "redirect:/login/";
 		} else {
 			model.addAttribute("message3", "Registration Failed");
 			model.addAttribute("message2", "Please try again");
