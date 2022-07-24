@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import static com.gcu.preach.controller.LoginUserController.userName;
+
 @Controller
 @RequestMapping("/index")
 public class IndexController {
@@ -18,7 +20,9 @@ public class IndexController {
     public String display( Model model) {
 
         // Display login form view
-        model.addAttribute("loggedInMessage", "Welcome to Preach Blog admin");
+        model.addAttribute("loggedInMessage", "Welcome to Preach Blog");
+        model.addAttribute("userName", userName);
+        model.addAttribute("loginPrompt", " Login to access blog");
         model.addAttribute("blogPosts", blogPostsBusinessService.getAllBlogPosts());
 
         return "index";

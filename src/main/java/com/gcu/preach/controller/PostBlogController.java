@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 import static com.gcu.preach.Business.BlogPostsBusinessService.blogPosts;
+import static com.gcu.preach.controller.LoginUserController.userName;
 
 @Controller
 @RequestMapping("/postBlog")
@@ -25,8 +26,9 @@ public class PostBlogController {
     @GetMapping("/")
     public String display(Model model) {
         // Display post blog form view
-        model.addAttribute("title", "Preach It!!");
+        model.addAttribute("headerText", "Preach It!!");
         model.addAttribute("blogPost", new BlogPost());
+        model.addAttribute("userName", userName);
         model.addAttribute("blogID", blogPosts.size());
         return "postBlog";
     }
