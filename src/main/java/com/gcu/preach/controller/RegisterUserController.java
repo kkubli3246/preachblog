@@ -3,15 +3,10 @@ package com.gcu.preach.controller;
 
 import javax.validation.Valid;
 
-import com.gcu.preach.Business.AppConfig;
 import com.gcu.preach.Business.UserBusinessServiceInterface;
-import com.gcu.preach.model.UserModel;
-import org.apache.catalina.core.ApplicationContext;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
+import com.gcu.preach.dao.UserRepository;
+import com.gcu.preach.entity.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,9 +21,11 @@ import com.gcu.preach.model.RegisterModel;
 @RequestMapping("/register")
 public class RegisterUserController{
 
+
+
 	@Autowired
-	private UserBusinessServiceInterface security;
-	
+	UserRepository service;
+
 	@GetMapping("/")
 	public String display( Model model) {
 
@@ -41,7 +38,7 @@ public class RegisterUserController{
 	}
 	
 	@PostMapping("/doRegister")
-	public String doRegister(@Valid UserModel userModel, BindingResult bindingresult, Model model) {
+	public String doLogin(@Valid UserModel userModel, BindingResult bindingresult, Model model) {
 
 
 
@@ -50,7 +47,7 @@ public class RegisterUserController{
 			return "register";
 		}
 
-		else if(security.registerUser(userModel) != null) {
+		else if(service.create(userModel)) {
 			return "redirect:/login/";
 		} else {
 			model.addAttribute("message3", "Registration Failed");

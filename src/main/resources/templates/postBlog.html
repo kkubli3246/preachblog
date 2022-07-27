@@ -16,6 +16,12 @@
             <div class="preach-form">
                 <div class="container">
                     <form action="#" th:action="@{doPost}" th:object="${blogPost}" method="post">
+
+                        <div class="row">
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="blog-id" th:placeholder="${blogId}" th:field="*{id}">
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="form-group">
                                 <input class="form-control" type="text" id="blog-title" th:field="*{title}" placeholder="Title">

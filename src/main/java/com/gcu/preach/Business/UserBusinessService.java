@@ -1,20 +1,32 @@
 package com.gcu.preach.Business;
 
 
-import com.gcu.preach.model.UserModel;
+
+import com.gcu.preach.dao.UserRepository;
+import com.gcu.preach.entity.UserModel;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserBusinessService implements UserBusinessServiceInterface {
 
+    @Autowired
+    private UserRepository userRepository;
+
     public boolean authenticateUser(String username, String password) {
-        return username.equals("admin") && password.equals("SuperSecurePassword123");
+        UserModel user = userRepository.getUserByUsername(username);
+        if (user != null) {
+            if (user.getUserPassword().equals(password)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        return false;
     }
 
-    public UserModel registerUser(UserModel user) {
-        return new UserModel(user.getUserName(), user.getUserPassword(), user.getUserEmail(), user.getUserFirstName(),
-                user.getUserLastName(), user.getUserPhoneNumber(), user.getUserAddress1(), user.getUserAddress2(),
-                user.getUserCity(), user.getUserState(), user.getUserZip());
+    public boolean registerUser(UserModel userModel) {
+
+    return true;
     }
-
-
 }
 
