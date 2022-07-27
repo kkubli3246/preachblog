@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import com.gcu.preach.Business.BlogPostsBusinessInterface;
 import com.gcu.preach.Business.UserBusinessServiceInterface;
+import com.gcu.preach.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +22,7 @@ public class LoginUserController {
 	@Autowired
 	public UserBusinessServiceInterface security;
 
-	@Autowired
-	private BlogPostsBusinessInterface blogPostsBusinessService;
-	
+
 	@GetMapping("/")
 	public String display( Model model) {
 		
@@ -44,7 +43,7 @@ public class LoginUserController {
 			return "login";
 		}
 		else if(security.authenticateUser(loginModel.getUserName(), loginModel.getPassword())) {
-			blogPostsBusinessService.createBlogPosts();
+
 			userName = loginModel.getUserName();
 			return "redirect:/index/";
 		} else {

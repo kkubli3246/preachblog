@@ -29,7 +29,8 @@ public class PostBlogController {
         model.addAttribute("headerText", "Preach It!!");
         model.addAttribute("blogPost", new BlogPost());
         model.addAttribute("userName", userName);
-        model.addAttribute("blogID", blogPosts.size());
+        model.addAttribute("blogId", blogPosts.size());
+
         return "postBlog";
     }
 

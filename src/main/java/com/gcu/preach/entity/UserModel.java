@@ -1,9 +1,18 @@
-package com.gcu.preach.model;
+package com.gcu.preach.entity;
+
+import com.gcu.preach.model.UserBlogPostList;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserModel {
     @NotNull(message="User name field cannot be empty!")
     @Size(min=1, max=32, message="Your user name must be between 1 and 32 characters long!")
@@ -39,24 +48,20 @@ public class UserModel {
     private String userZip;
     private UserBlogPostList userBlogPostList;
 
-    public UserModel() {
-
+    public UserModel(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String userPhoneNumber, String userAddress1, String userAddress2, String userCity, String userState, String userZip) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.userPhoneNumber = userPhoneNumber;
+        this.userAddress1 = userAddress1;
+        this.userAddress2 = userAddress2;
+        this.userCity = userCity;
+        this.userState = userState;
+        this.userZip = userZip;
     }
 
-public UserModel(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String userPhoneNumber, String userAddress1, String userAddress2, String userCity, String userState, String userZip) {
-    	this.userName = userName;
-    	this.userPassword = userPassword;
-    	this.userEmail = userEmail;
-    	this.userFirstName = userFirstName;
-    	this.userLastName = userLastName;
-    	this.userPhoneNumber = userPhoneNumber;
-    	this.userAddress1 = userAddress1;
-    	this.userAddress2 = userAddress2;
-    	this.userCity = userCity;
-    	this.userState = userState;
-    	this.userZip = userZip;
-    	this.userBlogPostList = new UserBlogPostList();
-    }
 
     public String getUserName() {
         return userName;

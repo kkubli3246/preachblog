@@ -4,7 +4,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class LoginModel {
-	
+
+
 	//Private class variables
 		@NotNull(message="User name field cannot be empty!")
 		@Size(min=1, max=32, message="User name must be between 1 and 32 characters long!")

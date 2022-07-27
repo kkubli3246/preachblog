@@ -1,12 +1,12 @@
 package com.gcu.preach.Business;
 
 
-import com.gcu.preach.model.UserModel;
+import com.gcu.preach.entity.UserModel;
 
 public interface UserBusinessServiceInterface {
 
      boolean authenticateUser(String username, String password);
-     UserModel registerUser(UserModel user);
+     boolean registerUser(UserModel userModel);
 
 
 }
