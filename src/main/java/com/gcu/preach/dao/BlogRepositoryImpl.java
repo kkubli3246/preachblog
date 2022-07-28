@@ -45,7 +45,12 @@ public class BlogRepositoryImpl implements BlogRepository {
 
     @Override
     public int GetNextBlogPostId() {
-        return jdbcTemplate.queryForObject(GET_NEXT_BLOG_POST_ID_QUERY, Integer.class) + 1;
+        if(jdbcTemplate.queryForObject(GET_NEXT_BLOG_POST_ID_QUERY, Integer.class) == null) {
+            return 0;
+        }
+        else {
+            return jdbcTemplate.queryForObject(GET_NEXT_BLOG_POST_ID_QUERY, Integer.class) + 1;
+        }
     }
 
 
