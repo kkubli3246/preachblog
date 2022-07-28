@@ -22,6 +22,7 @@ public class UserRepositoryImpl implements UserRepository{
     private static final String DELETE_USER_BY_USERNAME_QUERY="DELETE FROM usermodel WHERE userName=?";
 
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private JdbcTemplate jdbcTemplate;
 

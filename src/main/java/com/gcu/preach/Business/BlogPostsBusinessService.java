@@ -456,7 +456,9 @@ public static List<BlogPost> blogPosts = new ArrayList<>();
     }
 
     @Override
-    public int getSize() {
-        return blogPosts.size();
+    public int getNextBlogId() {
+        return service.GetNextBlogPostId();
     }
+
+
 }

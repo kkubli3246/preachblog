@@ -9,4 +9,6 @@ public interface BlogRepository {
     boolean createBlogPosts(BlogPost blogPost);
     BlogPost getBlogPostById(int id);
     List<BlogPost> getAllBlogPosts();
+
+    int GetNextBlogPostId();
 }

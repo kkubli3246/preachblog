@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
-import static com.gcu.preach.Business.BlogPostsBusinessService.blogPosts;
 import static com.gcu.preach.controller.LoginUserController.userName;
 
 @Controller
@@ -25,11 +24,13 @@ public class PostBlogController {
 
     @GetMapping("/")
     public String display(Model model) {
+        BlogPost blogPost = new BlogPost();
+        blogPost.setId(blogPostsBusinessService.getNextBlogId());
         // Display post blog form view
         model.addAttribute("headerText", "Preach It!!");
-        model.addAttribute("blogPost", new BlogPost());
+        model.addAttribute("blogPost", blogPost);
         model.addAttribute("userName", userName);
-        model.addAttribute("blogId", blogPosts.size());
+
 
         return "postBlog";
     }

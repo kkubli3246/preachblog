@@ -11,5 +11,5 @@ public interface BlogPostsBusinessInterface {
     void addBlogPost(BlogPost blogPost);
 
 
-    int getSize();
+    int getNextBlogId();
 }
