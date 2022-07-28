@@ -1,4 +1,12 @@
 package com.gcu.preach.dao;
 
-public class BlogRepository {
+
+import com.gcu.preach.entity.BlogPost;
+
+import java.util.List;
+
+public interface BlogRepository {
+    boolean createBlogPosts(BlogPost blogPost);
+    BlogPost getBlogPostById(int id);
+    List<BlogPost> getAllBlogPosts();
 }

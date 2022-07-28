@@ -1,6 +1,8 @@
 package com.gcu.preach.model;
 
 
+import com.gcu.preach.entity.BlogPost;
+
 import java.util.ArrayList;
 import java.util.List;
 
