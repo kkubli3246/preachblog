@@ -3,6 +3,7 @@ package com.gcu.preach.controller;
 
 import javax.validation.Valid;
 
+import com.gcu.preach.Business.UserBusinessService;
 import com.gcu.preach.Business.UserBusinessServiceInterface;
 import com.gcu.preach.dao.UserRepository;
 import com.gcu.preach.entity.UserModel;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gcu.preach.model.RegisterModel;
 
 
 @Controller
@@ -24,7 +24,7 @@ public class RegisterUserController{
 
 
 	@Autowired
-	UserRepository service;
+	private UserBusinessServiceInterface service;
 
 	@GetMapping("/")
 	public String display( Model model) {
@@ -40,19 +40,16 @@ public class RegisterUserController{
 	@PostMapping("/doRegister")
 	public String doLogin(@Valid UserModel userModel, BindingResult bindingresult, Model model) {
 
-
-
 		if(bindingresult.hasErrors()) {
 			model.addAttribute("title", "Register Form");
 			return "register";
 		}
-
-		else if(service.create(userModel)) {
+		else if(service.registerUser(userModel)) {
 			return "redirect:/login/";
 		} else {
-			model.addAttribute("message3", "Registration Failed");
+			model.addAttribute("message3", "A User With That Username Already Exists");
 			model.addAttribute("message2", "Please try again");
-			model.addAttribute("registerModel", new RegisterModel());
+			model.addAttribute("registerModel", new UserModel());
 			return "register";
 		}
 	}

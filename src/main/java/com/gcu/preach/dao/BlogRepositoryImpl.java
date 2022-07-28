@@ -13,7 +13,9 @@ public class BlogRepositoryImpl implements BlogRepository {
     private static final String INSERT_BLOG_POST_QUERY = "INSERT INTO blogpost(id, title, contentPreview, fullContent, author, date) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String GET_BLOG_POST_BY_ID_QUERY = "SELECT * FROM blogpost WHERE id=?";
     private static final String GET_ALL_BLOG_POSTS_QUERY = "SELECT * FROM blogpost";
+    private static final String GET_NEXT_BLOG_POST_ID_QUERY = "SELECT MAX(id) FROM blogpost";
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -40,5 +42,17 @@ public class BlogRepositoryImpl implements BlogRepository {
                 rs.getString("contentPreview"), rs.getString("fullContent"),
                 rs.getString("author"), rs.getString("date")));
     }
+
+    @Override
+    public int GetNextBlogPostId() {
+        if(jdbcTemplate.queryForObject(GET_NEXT_BLOG_POST_ID_QUERY, Integer.class) == null) {
+            return 0;
+        }
+        else {
+            return jdbcTemplate.queryForObject(GET_NEXT_BLOG_POST_ID_QUERY, Integer.class) + 1;
+        }
+    }
+
+
 }
 

@@ -25,8 +25,10 @@ public class UserBusinessService implements UserBusinessServiceInterface {
     }
 
     public boolean registerUser(UserModel userModel) {
-
-    return true;
+        userRepository.create(userModel);
+            return true;
     }
+
+
 }
 

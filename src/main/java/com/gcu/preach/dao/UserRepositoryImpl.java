@@ -22,24 +22,23 @@ public class UserRepositoryImpl implements UserRepository{
     private static final String DELETE_USER_BY_USERNAME_QUERY="DELETE FROM usermodel WHERE userName=?";
 
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
     public UserModel getUserByUsername(String username) {
-        return jdbcTemplate.queryForObject(GET_USER_BY_USERNAME_QUERY,(rs, rowNum) -> {
-                    return new UserModel(rs.getString("userName"),
-                            rs.getString("userPassword"),
-                            rs.getString("userFirstName"),
-                            rs.getString("userLastName"),
-                            rs.getString("userEmail"),
-                            rs.getString("userPhoneNumber"),
-                            rs.getString("userAddress1"),
-                            rs.getString("userAddress2"),
-                            rs.getString("userCity"),
-                            rs.getString("userState"),
-                            rs.getString("userZip"));
-        }, username);
+        return jdbcTemplate.queryForObject(GET_USER_BY_USERNAME_QUERY,(rs, rowNum) -> new UserModel(rs.getString("userName"),
+                rs.getString("userPassword"),
+                rs.getString("userFirstName"),
+                rs.getString("userLastName"),
+                rs.getString("userEmail"),
+                rs.getString("userPhoneNumber"),
+                rs.getString("userAddress1"),
+                rs.getString("userAddress2"),
+                rs.getString("userCity"),
+                rs.getString("userState"),
+                rs.getString("userZip")), username);
     }
 
     @Override
