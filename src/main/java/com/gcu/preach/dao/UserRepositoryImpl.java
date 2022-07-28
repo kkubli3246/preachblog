@@ -67,18 +67,16 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public List<UserModel> getAllUsers() {
-        return jdbcTemplate.query(GET_ALL_USERS_QUERY, (rs, rowNum) -> {
-            return new UserModel(rs.getString("userName"),
-                    rs.getString("userPassword"),
-                    rs.getString("userFirstName"),
-                    rs.getString("userLastName"),
-                    rs.getString("userEmail"),
-                    rs.getString("userPhoneNumber"),
-                    rs.getString("userAddress1"),
-                    rs.getString("userAddress2"),
-                    rs.getString("userCity"),
-                    rs.getString("userState"),
-                    rs.getString("userZip"));
-        });
+        return jdbcTemplate.query(GET_ALL_USERS_QUERY, (rs, rowNum) -> new UserModel(rs.getString("userName"),
+                rs.getString("userPassword"),
+                rs.getString("userFirstName"),
+                rs.getString("userLastName"),
+                rs.getString("userEmail"),
+                rs.getString("userPhoneNumber"),
+                rs.getString("userAddress1"),
+                rs.getString("userAddress2"),
+                rs.getString("userCity"),
+                rs.getString("userState"),
+                rs.getString("userZip")));
     }
 }

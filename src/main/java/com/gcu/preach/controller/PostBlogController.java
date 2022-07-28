@@ -2,7 +2,7 @@ package com.gcu.preach.controller;
 
 
 import com.gcu.preach.Business.BlogPostsBusinessInterface;
-import com.gcu.preach.model.BlogPost;
+import com.gcu.preach.entity.BlogPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +41,7 @@ public class PostBlogController {
             return "postBlog";
         }
         else {
-            blogPostsBusinessService.addBlogPost(blogPost);
+            blogPostsBusinessService.createBlogPosts(blogPost);
             return "redirect:/index/";
         }
     }

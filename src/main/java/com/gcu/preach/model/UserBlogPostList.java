@@ -1,5 +1,7 @@
 package com.gcu.preach.model;
 
+import com.gcu.preach.entity.BlogPost;
+
 import java.util.List;
 
 public class UserBlogPostList {

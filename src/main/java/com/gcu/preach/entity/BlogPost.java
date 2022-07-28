@@ -1,8 +1,14 @@
-package com.gcu.preach.model;
+package com.gcu.preach.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BlogPost {
 
 
@@ -23,16 +29,12 @@ public class BlogPost {
     @Size(min=4, max=20, message="Date field must be between 4 and 20 characters long!")
     private String date;
 
-    public BlogPost(int id, String title, String contentPreview, String fullContent, String author, String date) {
-        this.id = id;
+    public BlogPost(String title, String contentPreview, String fullContent, String author, String date) {
         this.title = title;
         this.contentPreview = contentPreview;
         this.fullContent = fullContent;
         this.author = author;
         this.date = date;
-    }
-
-    public BlogPost() {
     }
 
     public int getId() {
