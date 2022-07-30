@@ -3,9 +3,7 @@ package com.gcu.preach.controller;
 
 import javax.validation.Valid;
 
-import com.gcu.preach.Business.UserBusinessService;
 import com.gcu.preach.Business.UserBusinessServiceInterface;
-import com.gcu.preach.dao.UserRepository;
 import com.gcu.preach.entity.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

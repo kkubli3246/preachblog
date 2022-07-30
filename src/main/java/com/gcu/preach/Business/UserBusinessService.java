@@ -6,7 +6,11 @@ import com.gcu.preach.dao.UserRepository;
 import com.gcu.preach.entity.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static com.gcu.preach.controller.LoginUserController.userName;
+
 public class UserBusinessService implements UserBusinessServiceInterface {
+
+
 
     @Autowired
     private UserRepository userRepository;
@@ -14,12 +18,7 @@ public class UserBusinessService implements UserBusinessServiceInterface {
     public boolean authenticateUser(String username, String password) {
         UserModel user = userRepository.getUserByUsername(username);
         if (user != null) {
-            if (user.getUserPassword().equals(password)) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            return user.getUserPassword().equals(password);
         }
         return false;
     }
@@ -27,6 +26,10 @@ public class UserBusinessService implements UserBusinessServiceInterface {
     public boolean registerUser(UserModel userModel) {
         userRepository.create(userModel);
             return true;
+    }
+
+    public UserModel getUserByUsername() {
+        return userRepository.getUserByUsername(userName);
     }
 
 

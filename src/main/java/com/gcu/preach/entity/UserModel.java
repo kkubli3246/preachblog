@@ -48,7 +48,7 @@ public class UserModel {
     private String userZip;
     private UserBlogPostList userBlogPostList;
 
-    public UserModel(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String userPhoneNumber, String userAddress1, String userAddress2, String userCity, String userState, String userZip) {
+    public UserModel(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String userPhoneNumber, String userAddress1, String userAddress2, String userCity, String userState, String userZip, UserBlogPostList userBlogPostList) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
@@ -60,6 +60,7 @@ public class UserModel {
         this.userCity = userCity;
         this.userState = userState;
         this.userZip = userZip;
+        this.userBlogPostList = new UserBlogPostList();
     }
 
 

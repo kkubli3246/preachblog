@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xml:lang="en" xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.utlraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/profile.css" th:href="@{/css/profile.css}">
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="body-content">
+        <div class="body-content__sidebar">
+            <div class="sidebar__sidebarTop">
+                <img class="sidebar__sidebarTop__head-splasher"
+                        src="https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1
+                        &ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1129&q=80"
+                        alt="profile">
+                <img class="sidebarTop_avatar-icon" th:src="@{/img/ic_avatar.png}" alt="avatar icon"/>
+                <h2 th:text="${userModel.getUserName}"></h2>
+                <h5 th:text="${userModel.getUserLastName}"></h5>
+                <h5 th:text="${userModel.getUserEmail}"></h5>
+                <h5 th:text="${userModel.getUserFirstName}"></h5>
+                <h5 th:text="${userModel.getUserPhoneNumber}"></h5>
+                <h5 th:text="${userModel.getUserAddress1}"></h5>
+                <h5 th:text="${userModel.getUserAddress2} ?: null"></h5>
+                <h5 th:text="${userModel.getUserCity}"></h5>
+                <h5 th:text="${userModel.getUserState}"></h5>
+                <h5 th:text="${userModel.getUserZip}"></h5>
+            </div>
+            <div class="sidebar__sidebarBottom">
+                <div class="sidebar__sidebarBottom__label">
+                    <h3 th:text="${sidebarBottomLabel}"></h3>
+                </div>
+                <div class="sidebar__bottom__option-links">
+                    <a href="../editProfile">Edit Profile</a>
+                </div>
+                <div class="sidebar__bottom__option-links">
+                    <a href="../logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="body-content__feed">
+            <div class="feed__post">
+                <div class="post__info">
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
