@@ -10,8 +10,6 @@ import static com.gcu.preach.controller.LoginUserController.userName;
 
 public class UserBusinessService implements UserBusinessServiceInterface {
 
-
-
     @Autowired
     private UserRepository userRepository;
 
@@ -31,7 +29,6 @@ public class UserBusinessService implements UserBusinessServiceInterface {
     public UserModel getUserByUsername() {
         return userRepository.getUserByUsername(userName);
     }
-
 
 }
 

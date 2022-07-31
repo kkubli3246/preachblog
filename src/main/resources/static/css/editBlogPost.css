@@ -1,4 +1,4 @@
-.header-message {
+.edit__header-message {
     width: 100%;
     height: auto;
     color: darkmagenta;
@@ -10,9 +10,14 @@
     padding: 20px;
 }
 
-.preach-form {
+.edit__blog-form {
+
     height: auto;
     display: flex;
     justify-content: center;
     padding: 100px;
+}
+.form-group-redact {
+
+    margin-left: -15px;
 }

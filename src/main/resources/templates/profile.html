@@ -42,11 +42,51 @@
             </div>
         </div>
         <div class="body-content__feed">
-            <div class="feed__post">
-                <div class="post__info">
-                    <h2></h2>
-                </div>
-            </div>
+            <h1 th:text="feedMessage">I am the feed</h1>
+
+                <table class="post__container" th:each="userBlogPost: ${userBlogPosts}">
+                    <tr>
+                        <td>
+                            <div class="post__container-header">
+                                <div class="feed__post-header-title">
+                                    <a th:href="@{'/fullpost/' + ${userBlogPost.id}}">
+                                        <h2 class="post-title" th:text="${userBlogPost.getTitle}"></h2>
+                                    </a>
+                                </div>
+                                <div class="feed__post-header-action-buttons"></div>
+                                <div class="action__buttons">
+                                    <a th:href="@{'/editpost/' + ${userBlogPost.id}}">
+                                        <img class="action__buttons-delete"
+                                             th:src="@{/img/ic_edit.png}" alt="edit post icon"/>
+                                    </a>
+                                        <img class="post__container-header__avatar"
+                                            th:src="@{/img/ic_delete.png}" alt="delete post icon"/>
+                                    <a>
+
+                                    </a>
+                                </div>
+
+
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p  class="post-preview-content-text" th:text="${userBlogPost.getContentPreview}">Problems look mighty small from 150 miles up</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="post-meta">
+                                Posted by
+                                <span class="post-author" th:text="${userBlogPost.getAuthor}"> Author </span>
+                                on <span th:text="${userBlogPost.getDate}">September 24, 2022</span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
         </div>
     </div>
 </div>

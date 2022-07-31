@@ -26,16 +26,10 @@ public class BlogPost {
     @Size(min=1, max=30, message="Author field must be between 1 and 30 characters long!")
     private String author;
     @NotNull(message="Date field cannot be empty!")
-    @Size(min=4, max=20, message="Date field must be between 4 and 20 characters long!")
+    @Size(min=28, max=29, message="Date field must be between 4 and 20 characters long!")
     private String date;
 
-    public BlogPost(String title, String contentPreview, String fullContent, String author, String date) {
-        this.title = title;
-        this.contentPreview = contentPreview;
-        this.fullContent = fullContent;
-        this.author = author;
-        this.date = date;
-    }
+
 
     public int getId() {
         return id;
