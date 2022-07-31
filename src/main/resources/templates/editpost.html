@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xml:lang="en" xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.utlraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/editBlogPost.css" th:href="@{/css/editBlogPost.css}">
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="body-content">
+            <h2 class="edit__header-message" th:text="${editPostMessage}">Welcome to the profile page</h2>
+        </div>
+        <div class="edit__blog-form">
+            <div class="container">
+                <form action="#" th:action="@{doPost}" th:object="${blogPost}" method="post">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="blog-title">Title</label>
+                            <input class="form-control" type="text" id="blog-title" th:field="*{title}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="preview-text">Content Preview</label>
+                            <textarea class="form-control" type="text" rows="12" id="preview-text" th:field="*{contentPreview}" placeholder="Preview Text"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="full-text">Full Content</label>
+                            <textarea class="form-control" type="text" rows="20" id="full-text" th:field="*{fullContent}" placeholder="Full Text"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Edit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

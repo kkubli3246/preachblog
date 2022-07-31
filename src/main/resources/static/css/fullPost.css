@@ -6,6 +6,7 @@
 .post-full-content-text{
     font-style: italic;
     padding-left: 20px;
+    text-wrap: normal;
 }
 
 .post-meta {
@@ -18,4 +19,5 @@
 }
 .body-content {
     margin-bottom: 100px;
+
 }

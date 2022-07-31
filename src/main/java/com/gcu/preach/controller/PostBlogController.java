@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static com.gcu.preach.controller.LoginUserController.userName;
 
 @Controller
@@ -24,8 +27,11 @@ public class PostBlogController {
 
     @GetMapping("/")
     public String display(Model model) {
+        String date = Calendar.getInstance().getTime().toString().formatted("%d/%m/%Y");
         BlogPost blogPost = new BlogPost();
         blogPost.setId(blogPostsBusinessService.getNextBlogId());
+        blogPost.setDate(date);
+        blogPost.setAuthor(userName);
         // Display post blog form view
         model.addAttribute("headerText", "Preach It!!");
         model.addAttribute("blogPost", blogPost);
@@ -42,7 +48,10 @@ public class PostBlogController {
             return "postBlog";
         }
         else {
+            //Save to blogposts table
             blogPostsBusinessService.createBlogPosts(blogPost);
+            //save to userblogposts table
+            blogPostsBusinessService.createUserBlogPosts(blogPost);
             return "redirect:/index/";
         }
     }
