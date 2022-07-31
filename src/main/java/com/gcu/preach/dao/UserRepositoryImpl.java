@@ -50,12 +50,12 @@ public class UserRepositoryImpl implements UserRepository{
     }
 
     @Override
-    public UserModel update(UserModel userModel) {
+    public boolean update(UserModel userModel) {
         jdbcTemplate.update(UPDATE_USER_BY_USERNAME_QUERY, userModel.getUserName(), userModel.getUserPassword(),
                 userModel.getUserFirstName(), userModel.getUserLastName(), userModel.getUserEmail(), userModel.getUserPhoneNumber(),
                 userModel.getUserAddress1(), userModel.getUserAddress2(), userModel.getUserCity(), userModel.getUserState(),
                 userModel.getUserZip(), userModel.getUserName());
-        return userModel;
+        return true;
     }
 
     @Override

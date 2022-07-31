@@ -19,14 +19,14 @@ public class UserModel {
     @Size(min=1, max=32, message="Your password must be between 1 and 32 characters long!")
     private String userPassword;
     @NotNull(message="User name field cannot be empty!")
-    @Size(min=1, max=50, message="Your email must be between 1 and 50 characters long!")
-    private String userEmail;
-    @NotNull(message="User name field cannot be empty!")
     @Size(min=1, max=20, message="Your first name must be between 1 and 32 characters long!")
     private String userFirstName;
     @NotNull(message="User name field cannot be empty!")
     @Size(min=1, max=20, message="Your last name must be between 1 and 32 characters long!")
     private String userLastName;
+    @NotNull(message="User name field cannot be empty!")
+    @Size(min=1, max=50, message="Your email must be between 1 and 50 characters long!")
+    private String userEmail;
     @NotNull(message="User name field cannot be empty!")
     @Size(min=10, max=10, message="Your phone number must be contain 10 characters, (only numbers please)!")
     private String userPhoneNumber;

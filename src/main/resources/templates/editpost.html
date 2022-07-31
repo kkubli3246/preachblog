@@ -14,7 +14,13 @@
         </div>
         <div class="edit__blog-form">
             <div class="container">
-                <form action="#" th:action="@{doPost}" th:object="${blogPost}" method="post">
+                <form action="#" th:action="@{doEditPost}" th:object="${blogPost}" method="post">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="blog-id">Blog ID</label>
+                            <input class="form-control" type="text" id="blog-id"  th:field="*{id}">
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="form-group">
                             <label for="blog-title">Title</label>
@@ -31,6 +37,18 @@
                         <div class="form-group">
                             <label for="full-text">Full Content</label>
                             <textarea class="form-control" type="text" rows="20" id="full-text" th:field="*{fullContent}" placeholder="Full Text"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4 form-group-redact">
+                            <label for="blog-author">Author</label>
+                            <input class="form-control" type="text" id="blog-author" th:field="*{author}" placeholder="Author">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-3 form-group-redact">
+                            <label for="blog-date">Date</label>
+                            <input class="form-control" type="text" id="blog-date" th:field="*{date}" placeholder="Date">
                         </div>
                     </div>
                     <div class="row">

@@ -1,0 +1,23 @@
+.edit__header-message {
+    width: 100%;
+    height: auto;
+    color: darkmagenta;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.edit__user-form {
+
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+.form-group-redact {
+
+    margin-left: -15px;
+}

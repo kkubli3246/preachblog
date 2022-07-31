@@ -19,9 +19,9 @@
                         alt="profile">
                 <img class="sidebarTop_avatar-icon" th:src="@{/img/ic_avatar.png}" alt="avatar icon"/>
                 <h2 th:text="${userModel.getUserName}"></h2>
-                <h5 th:text="${userModel.getUserLastName}"></h5>
                 <h5 th:text="${userModel.getUserEmail}"></h5>
                 <h5 th:text="${userModel.getUserFirstName}"></h5>
+                <h5 th:text="${userModel.getUserLastName}"></h5>
                 <h5 th:text="${userModel.getUserPhoneNumber}"></h5>
                 <h5 th:text="${userModel.getUserAddress1}"></h5>
                 <h5 th:text="${userModel.getUserAddress2} ?: null"></h5>
@@ -34,16 +34,16 @@
                     <h3 th:text="${sidebarBottomLabel}"></h3>
                 </div>
                 <div class="sidebar__bottom__option-links">
-                    <a href="../editProfile">Edit Profile</a>
+                    <a th:href="@{'/edituserdetails/' + ${userModel.getUserName}}">Edit Profile</a>
                 </div>
                 <div class="sidebar__bottom__option-links">
-                    <a href="../logout">Logout</a>
+                    <a th:href="@{'/profile/'}">Logout</a>
                 </div>
             </div>
         </div>
         <div class="body-content__feed">
             <h1 th:text="feedMessage">I am the feed</h1>
-
+            <form action="#" th:action="@{doDeletePost}" th:object="${blogPost}" method="post">
                 <table class="post__container" th:each="userBlogPost: ${userBlogPosts}">
                     <tr>
                         <td>
@@ -53,22 +53,17 @@
                                         <h2 class="post-title" th:text="${userBlogPost.getTitle}"></h2>
                                     </a>
                                 </div>
-                                <div class="feed__post-header-action-buttons"></div>
                                 <div class="action__buttons">
                                     <a th:href="@{'/editpost/' + ${userBlogPost.id}}">
                                         <img class="action__buttons-delete"
                                              th:src="@{/img/ic_edit.png}" alt="edit post icon"/>
                                     </a>
+                                    <a th:href="@{'/deletepost/' + ${userBlogPost.id}}" >
                                         <img class="post__container-header__avatar"
-                                            th:src="@{/img/ic_delete.png}" alt="delete post icon"/>
-                                    <a>
-
+                                             th:src="@{/img/ic_delete.png}" alt="delete post icon"/>
                                     </a>
                                 </div>
-
-
                             </div>
-
                         </td>
                     </tr>
                     <tr>
@@ -86,7 +81,7 @@
                         </td>
                     </tr>
                 </table>
-
+            </form>
         </div>
     </div>
 </div>

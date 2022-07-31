@@ -7,6 +7,8 @@ public interface UserBusinessServiceInterface {
 
      boolean authenticateUser(String username, String password);
      boolean registerUser(UserModel userModel);
-     UserModel getUserByUsername();
+     UserModel getUserByUsername(String username);
+
+     boolean update(UserModel userModel);
 
 }

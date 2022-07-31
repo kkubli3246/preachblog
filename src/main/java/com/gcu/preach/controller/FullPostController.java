@@ -19,7 +19,7 @@ public class FullPostController {
     public String getPost(@PathVariable int id, Model model) {
 
         // Display Full Blog Post form view
-        model.addAttribute("blogPost", blogPostsBusinessService.getAllBlogPosts().get(id));
+        model.addAttribute("blogPost", blogPostsBusinessService.getBlogPostById(id));
         return "fullpost";
     }
 }
