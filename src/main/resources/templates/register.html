@@ -3,74 +3,95 @@
   <head>
     <meta charset="UTF-8">
     <title>Register User</title>
-	
-	
+	  <link rel="stylesheet" href="../static/css/register.css" th:href="@{/css/register.css}">
+
+
   </head>
   <body>
-	
   	<div layout:fragment="content">
-  	
-  		<div align="center">
+  		<div class="header-message">
 			<h2 th:text="${message1}">Welcome to bla</h2>
-			<h2 th:text="${message3}">Welcome to bla</h2>
+			<h2 class="sub-header" th:text="${message3}">Welcome to bla</h2>
 			<h3 th:text="${message2}">Heebee Jeebee</h3><br/>
-
-			<form action="#" th:action="@{doRegister}" th:object="${userModel}" method="post">
-				<table>
-					<tr>
-						<td>First Name:</td><td><input type="text" th:field="*{userFirstName}" ></td>
-					</tr>
-					<tr>
-						<td>Last Name:</td><td><input type="text" th:field="*{userLastName}" ></td>
-					</tr>
-					<tr>
-						<td>Email:</td><td><input type="text" th:field="*{userEmail}" ></td>
-					</tr>
-					<tr>
-						<td>Username:</td><td><input type="text" th:field="*{userName}" ></td>
-					</tr>
-
-					<tr>
-						<td>Password:</td><td><input type="text" th:field="*{userPassword}" ></td>
-					</tr>
-					<tr>
-						<td>Re-Enter Password:</td><td><input type="text"></td>
-					</tr>
-					<tr>
-						<td>Phone Number:</td><td><input type="text" th:field="*{userPhoneNumber}" ></td>
-					</tr>
-					<tr>
-						<td>Address:</td><td><input type="text" th:field="*{userAddress1}" ></td>
-					</tr>
-					<tr>
-						<td>Address 2:</td><td><input type="text" th:field="*{userAddress2}" ></td>
-					</tr>
-					<tr>
-						<td>City:</td><td><input type="text" th:field="*{userCity}" ></td>
-					</tr>
-					<tr>
-						<td>State:</td><td><input type="text" th:field="*{userState}" ></td>
-					</tr>
-					<tr>
-						<td>Zip Code:</td><td><input type="text" th:field="*{userZip}" ></td>
-					</tr>
-					<tr>
-						<td align="center "colspan="2"><input type="submit" value="Sign Up" style="margin-top: 20px;"/></td>
-					</tr>
-				</table>
-				<div th:if="${#fields.errors('*')}">
-					<div th:each="err : ${#fields.errors('*')}">
-						<span style="color:red" th:text="${err}" class="fieldError"></span>
-					</div>
-				</div>
-				
-			</form>
-		
 		</div>
-  	</div>
-	
-	
+		<div class="edit__user-form ">
+			<div class="container">
+				<form action="#" th:action="@{doRegister}" th:object="${userModel}" method="post">
+					<div class="row">
+						<div class="form-group">
+							<input class="form-control" id="uname" th:field="*{userName}" placeholder="Username">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
 
+							<input class="form-control" type="text" id="password" th:field="*{userPassword}" placeholder="Password">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+
+							<input class="form-control" id="fname" type="text" th:field="*{userFirstName}" placeholder="First Name">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+
+							<input class="form-control" id="lname" type="text" th:field="*{userLastName}" placeholder="Last Name">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+
+							<input class="form-control" id="email" type="text" th:field="*{userEmail}" placeholder="Email">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+
+							<input class="form-control" id="pn" type="text" th:field="*{userPhoneNumber}" placeholder="Phone Number">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+
+							<input class="form-control" id="a1" type="text" th:field="*{userAddress1}" placeholder="Address 1">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<input class="form-control" id="a2" type="text" th:field="*{userAddress2}" placeholder="Address 2">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<input class="form-control" id="city" type="text" th:field="*{userCity}" placeholder="City">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<input class="form-control" id="state" type="text" th:field="*{userState}" placeholder="State">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<input class="form-control" id="zip" type="text" th:field="*{userZip}" placeholder="Zip">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<button class="btn btn-primary" type="submit">Edit User</button>
+						</div>
+					</div>
+					<div th:if="${#fields.errors('*')}">
+						<div th:each="err : ${#fields.errors('*')}">
+							<span style="color:red" th:text="${err}" class="fieldError"></span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
   </body>
 </html>
 

@@ -1,19 +1,21 @@
 body {
     background-color: #f3f2ef;
 }
-.edit__header-message {
+.header-message {
     width: 100%;
     height: auto;
     color: darkmagenta;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #f5f5f5;
-    padding: 20px;
-}
 
-.edit__blog-form {
+}
+.sub-header {
+    margin-top: -30px;
+}
+.edit__user-form {
 
     height: auto;
     display: flex;

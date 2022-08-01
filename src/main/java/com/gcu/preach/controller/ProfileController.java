@@ -33,11 +33,11 @@ public class ProfileController {
     public String display( Model model) {
         UserModel userModel = userBusinessService.getUserByUsername(userName);
 
-        model.addAttribute("message1", "Welcome to Your Profile ");
+        model.addAttribute("feedHeaderText", "Welcome to Your Profile ");
         model.addAttribute("userModel", userModel);
         model.addAttribute("sidebarBottomLabel", "User Options");
         model.addAttribute("userBlogPosts", blogPostsBusinessService.getAllUserBlogPosts());
-        model.addAttribute("feedMessage", "I am the feed message");
+
         return "profile";
     }
     @PostMapping("/doDeletePost")

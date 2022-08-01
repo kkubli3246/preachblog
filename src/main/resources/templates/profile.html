@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="body-content__feed">
-            <h1 th:text="feedMessage">I am the feed</h1>
+            <h1 class="feed__header-text" th:text="${feedHeaderText}">I am the feed</h1>
             <form action="#" th:action="@{doDeletePost}" th:object="${blogPost}" method="post">
                 <table class="post__container" th:each="userBlogPost: ${userBlogPosts}">
                     <tr>
