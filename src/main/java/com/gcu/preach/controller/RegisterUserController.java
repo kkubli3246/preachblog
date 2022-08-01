@@ -29,7 +29,7 @@ public class RegisterUserController{
 
 		// Display login form view
 		model.addAttribute("message1", "Welcome to Preach Blog");
-		model.addAttribute("message2", "Register");
+		model.addAttribute("message2", "Register New User");
 		model.addAttribute("userModel", new UserModel());
 	
 		return "register";

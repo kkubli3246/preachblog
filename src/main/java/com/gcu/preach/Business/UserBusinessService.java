@@ -26,8 +26,13 @@ public class UserBusinessService implements UserBusinessServiceInterface {
             return true;
     }
 
-    public UserModel getUserByUsername() {
+    public UserModel getUserByUsername(String username) {
         return userRepository.getUserByUsername(userName);
+    }
+
+    @Override
+    public boolean update(UserModel userModel) {
+        return userRepository.update(userModel);
     }
 
 }

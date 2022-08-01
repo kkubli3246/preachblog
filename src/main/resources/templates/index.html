@@ -20,7 +20,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center" >
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <!-- Post preview-->
-                       <table th:each="blogPost: ${blogPosts}">
+                       <table class="post__container" th:each="blogPost: ${blogPosts}">
                            <tr>
                                <td>
                                    <a th:href="@{'/fullpost/' + ${blogPost.id}}">
@@ -40,7 +40,6 @@
                                        <span class="post-author" th:text="${blogPost.getAuthor}"> Author </span>
                                        on <span th:text="${blogPost.getDate}">September 24, 2022</span>
                                    </p>
-                                   <hr class="my-4" />
                                </td>
                            </tr>
                        </table>
@@ -49,6 +48,5 @@
             </div>
         </div>
   	</div>
-
   </body>
 </html>

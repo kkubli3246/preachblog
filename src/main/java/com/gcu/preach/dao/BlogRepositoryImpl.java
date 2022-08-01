@@ -19,12 +19,16 @@ public class BlogRepositoryImpl implements BlogRepository, UserBlogRepository {
     private static final String GET_USER_BLOG_POST_BY_ID_QUERY = "SELECT * FROM userblogpost WHERE id=?";
     private static final String GET_ALL_USER_BLOG_POSTS_QUERY = "SELECT * FROM userblogpost WHERE author=?";
     private static final String GET_NEXT_USER_BLOG_POST_ID_QUERY = "SELECT MAX(id) FROM userblogpost";
+    private static final String UPDATE_USER_BLOG_POST_BY_ID_QUERY = "UPDATE userblogpost SET title=?, contentPreview=?, fullContent=?, author=?, date=? WHERE id=?";
+    private static final String DELETE_USER_BLOG_POST_BY_ID_QUERY = "DELETE FROM userblogpost WHERE id=?";
 
     //All Blog Posts
     private static final String INSERT_BLOG_POST_QUERY = "INSERT INTO blogpost(id, title, contentPreview, fullContent, author, date) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String GET_BLOG_POST_BY_ID_QUERY = "SELECT * FROM blogpost WHERE id=?";
     private static final String GET_ALL_BLOG_POSTS_QUERY = "SELECT * FROM blogpost";
     private static final String GET_NEXT_BLOG_POST_ID_QUERY = "SELECT MAX(id) FROM blogpost";
+    private static final String UPDATE_BLOG_POST_BY_ID_QUERY = "UPDATE blogpost SET title=?, contentPreview=?, fullContent=?, author=?, date=? WHERE id=?";
+    private static final String DELETE_BLOG_POST_BY_ID_QUERY = "DELETE FROM blogpost WHERE id=?";
 
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
@@ -36,6 +40,18 @@ public class BlogRepositoryImpl implements BlogRepository, UserBlogRepository {
         jdbcTemplate.update(INSERT_BLOG_POST_QUERY, blogPost.getId(), blogPost.getTitle(),
                 blogPost.getContentPreview(), blogPost.getFullContent(), blogPost.getAuthor(),
                 blogPost.getDate());
+    }
+
+    @Override
+    public void updateBlogPosts(BlogPost blogPost) {
+        jdbcTemplate.update(UPDATE_BLOG_POST_BY_ID_QUERY, blogPost.getTitle(),
+                blogPost.getContentPreview(), blogPost.getFullContent(), blogPost.getAuthor(),
+                blogPost.getDate(), blogPost.getId());
+    }
+
+    @Override
+    public void deleteBlogPosts(int id) {
+        jdbcTemplate.update(DELETE_BLOG_POST_BY_ID_QUERY, id);
     }
 
     @Override
@@ -71,6 +87,18 @@ public class BlogRepositoryImpl implements BlogRepository, UserBlogRepository {
         jdbcTemplate.update(INSERT_USER_BLOG_POST_QUERY, blogPost.getId(), blogPost.getTitle(),
                 blogPost.getContentPreview(), blogPost.getFullContent(), blogPost.getAuthor(),
                 blogPost.getDate());
+    }
+
+    @Override
+    public void updateUserBlogPosts(BlogPost blogPost) {
+        jdbcTemplate.update(UPDATE_USER_BLOG_POST_BY_ID_QUERY, blogPost.getTitle(),
+                blogPost.getContentPreview(), blogPost.getFullContent(), blogPost.getAuthor(),
+                blogPost.getDate(), blogPost.getId());
+    }
+
+    @Override
+    public void deleteUserBlogPosts(int id) {
+        jdbcTemplate.update(DELETE_USER_BLOG_POST_BY_ID_QUERY, id);
     }
 
     @Override

@@ -28,7 +28,24 @@ public static List<BlogPost> blogPosts = new ArrayList<>();
     @Override
     public void createBlogPosts(BlogPost blogPost) {
         service.createBlogPosts(blogPost);
-        service.getAllBlogPosts();
+
+    }
+
+    @Override
+    public void updateBlogPosts(BlogPost blogPost) {
+        service.updateBlogPosts(blogPost);
+
+    }
+
+    @Override
+    public void deleteBlogPosts(int id) {
+        service.deleteBlogPosts(id);
+
+    }
+
+    @Override
+    public BlogPost getBlogPostById(int id) {
+        return service.getBlogPostById(id);
     }
 
     @Override
@@ -45,6 +62,18 @@ public static List<BlogPost> blogPosts = new ArrayList<>();
     @Override
     public void createUserBlogPosts(BlogPost blogPost) {
         userService.createUserBlogPosts(blogPost);
+        userService.getAllUserBlogPosts(userName);
+    }
+
+    @Override
+    public void updateUserBlogPosts(BlogPost blogPost) {
+        userService.updateUserBlogPosts(blogPost);
+
+    }
+
+    @Override
+    public void deleteUserBlogPosts(int id) {
+        userService.deleteUserBlogPosts(id);
         userService.getAllUserBlogPosts(userName);
     }
 

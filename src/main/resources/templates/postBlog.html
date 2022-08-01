@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="../static/css/postBlog.css" th:href="@{/css/postBlog.css}">
     <link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+
 </head>
 <body>
     <div layout:fragment="content">
@@ -15,6 +16,12 @@
             <div class="preach-form">
                 <div class="container">
                     <form action="#" th:action="@{doPost}" th:object="${blogPost}" method="post">
+
+                        <div class="row">
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="blog-id"  th:field="*{id}">
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="form-group">
                                 <input class="form-control" type="text" id="blog-title" th:field="*{title}" placeholder="Title">
@@ -28,6 +35,16 @@
                         <div class="row">
                             <div class="form-group">
                                 <textarea class="form-control" type="text" rows="20" id="full-text" th:field="*{fullContent}" placeholder="Full Text"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-4 form-group-redact">
+                                <input class="form-control" type="text" id="blog-author" th:field="*{author}" placeholder="Author">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-3 form-group-redact">
+                                <input class="form-control" type="text" id="blog-date" th:field="*{date}" placeholder="Date">
                             </div>
                         </div>
                         <div class="row">

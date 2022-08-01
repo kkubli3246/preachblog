@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xml:lang="en" xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.utlraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/editUserDetails.css" th:href="@{/css/edituserdetails.css}">
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="body-content">
+        <h2 class="edit__header-message" th:text="${editPostMessage}">Welcome to the profile page</h2>
+    </div>
+    <div class="edit__user-form">
+        <div class="container">
+            <form action="#" th:action="@{doEditUserDetails}" th:object="${userModel}" method="post">
+
+                <div class="row">
+                    <div class="form-group">
+                        <input class="form-control" th:field="*{userName}" type="hidden">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" type="text" id="password" th:field="*{userPassword}" placeholder="Password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input class="form-control" id="fname" type="text" th:field="*{userFirstName}" placeholder="First Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input class="form-control" id="lname" type="text" th:field="*{userLastName}" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" id="email" type="text" th:field="*{userEmail}" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="pn">Phone Number</label>
+                        <input class="form-control" id="pn" type="text" th:field="*{userPhoneNumber}" placeholder="Phone Number">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="a1">Address 1</label>
+                        <input class="form-control" id="a1" type="text" th:field="*{userAddress1}" placeholder="Address 1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="a2">Address 2</label>
+                        <input class="form-control" id="a2" type="text" th:field="*{userAddress2}" placeholder="Address 2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input class="form-control" id="city" type="text" th:field="*{userCity}" placeholder="City">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input class="form-control" id="state" type="text" th:field="*{userState}" placeholder="State">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="zip">Zip</label>
+                        <input class="form-control" id="zip" type="text" th:field="*{userZip}" placeholder="Zip">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">Edit User</button>
+                    </div>
+                </div>
+                <div th:if="${#fields.errors('*')}">
+                    <div th:each="err : ${#fields.errors('*')}">
+                        <span style="color:red" th:text="${err}" class="fieldError"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
