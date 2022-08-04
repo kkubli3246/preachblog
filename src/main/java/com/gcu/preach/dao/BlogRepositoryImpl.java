@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.util.List;
 
-import static com.gcu.preach.controller.LoginUserController.userName;
 
 @Repository
 public class BlogRepositoryImpl implements BlogRepository, UserBlogRepository {
