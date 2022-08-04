@@ -16,8 +16,7 @@ import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.Date;
 
-import static com.gcu.preach.controller.LoginUserController.userName;
-
+import static com.gcu.preach.Business.UserBusinessService.userName;
 @Controller
 @RequestMapping("/postBlog")
 public class PostBlogController {

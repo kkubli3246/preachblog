@@ -17,13 +17,5 @@ public class AppConfig implements WebMvcConfigurer {
     }
 
 
-
-    @Bean(name = "userBusinessService")
-     UserBusinessServiceInterface getUserBusinessService() {
-        return new UserBusinessService();
-    }
-
-
-
 }
 

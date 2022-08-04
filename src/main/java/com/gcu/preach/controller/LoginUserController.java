@@ -16,14 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.gcu.preach.model.LoginModel;
 
 @Controller
-@RequestMapping("/login")
+
 public class LoginUserController {
-	public static String userName = "";
-	@Autowired
-	public UserBusinessServiceInterface security;
 
 
-	@GetMapping("/")
+
+	@GetMapping("/login")
 	public String display( Model model) {
 		
 		// Display login form view
@@ -33,26 +31,5 @@ public class LoginUserController {
 	
 		return "login";
 	}
-	
-	@PostMapping("/doLogin")
-	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingresult, Model model) {
-		
-		if(bindingresult.hasErrors()) {
-			model.addAttribute("title", "Login");
-			model.addAttribute("loggedInMessage", "Welcome ");
-			return "login";
-		}
-		else if(security.authenticateUser(loginModel.getUserName(), loginModel.getPassword())) {
-
-			userName = loginModel.getUserName();
-			return "redirect:/index/";
-		} else {
-			model.addAttribute("message3", "Login Failed");
-			model.addAttribute("message2", "Please try again");
-			model.addAttribute("loginModel", new LoginModel());
-			return "login";
-		}
-	}
-
 
 }

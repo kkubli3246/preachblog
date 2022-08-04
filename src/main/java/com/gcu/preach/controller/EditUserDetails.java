@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
-import static com.gcu.preach.controller.LoginUserController.userName;
+import static com.gcu.preach.Business.UserBusinessService.userName;
 
 @Controller
 @RequestMapping("/edituserdetails")

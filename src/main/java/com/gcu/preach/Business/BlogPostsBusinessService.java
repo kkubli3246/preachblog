@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.gcu.preach.controller.LoginUserController.userName;
+import static com.gcu.preach.Business.UserBusinessService.userName;
+
 
 public class BlogPostsBusinessService implements BlogPostsBusinessInterface {
 public static List<BlogPost> blogPosts = new ArrayList<>();
