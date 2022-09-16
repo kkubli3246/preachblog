@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import com.gcu.preach.Business.UserBusinessServiceInterface;
 import com.gcu.preach.entity.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,6 +38,11 @@ public class RegisterUserController{
 	
 	@PostMapping("/doRegister")
 	public String doLogin(@Valid UserModel userModel, BindingResult bindingresult, Model model) {
+
+		String password = userModel.getUserPassword();
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPassword = passwordEncoder.encode(password);
+		userModel.setUserPassword(hashedPassword);
 
 		if(bindingresult.hasErrors()) {
 			model.addAttribute("title", "Register Form");
