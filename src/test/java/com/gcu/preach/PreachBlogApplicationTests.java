@@ -7,8 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootTest
 class PreachBlogApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+	
 
 }
