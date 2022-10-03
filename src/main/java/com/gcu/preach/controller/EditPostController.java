@@ -17,31 +17,31 @@ import javax.validation.Valid;
 @RequestMapping("/editpost")
 public class EditPostController {
 
-        @Autowired
-        private BlogPostsBusinessInterface blogPostsBusinessService;
+	@Autowired
+	private BlogPostsBusinessInterface blogPostsBusinessService;
 
-        @GetMapping("/{id}")
-        public String getPost(@PathVariable int id, Model model) {
-            model.addAttribute("editPostMessage", "Edit Post");
+	@GetMapping("/{id}")
+	public String getPost(@PathVariable int id, Model model) {
+		model.addAttribute("editPostMessage", "Edit Post");
 
-            BlogPost blogPost = blogPostsBusinessService.getBlogPostById(id);
-            // Display Full Blog Post form view
-            model.addAttribute("blogPost", blogPost);
+		BlogPost blogPost = blogPostsBusinessService.getBlogPostById(id);
+		// Display Full Blog Post form view
+		model.addAttribute("blogPost", blogPost);
 
-            return "editpost";
-        }
+		return "editpost";
+	}
 
-    @PostMapping("/doEditPost")
-    public String doEditPost(@Valid BlogPost blogPost, BindingResult bindingresult, Model model) {
+	@PostMapping("/doEditPost")
+	public String doEditPost(@Valid BlogPost blogPost, BindingResult bindingresult, Model model) {
 
-        if (bindingresult.hasErrors()) {
-            model.addAttribute("title", "Login");
-            model.addAttribute("loggedInMessage", "Welcome ");
-            return "editpost";
-        } else {
-            blogPostsBusinessService.updateBlogPosts(blogPost);
-            blogPostsBusinessService.updateUserBlogPosts(blogPost);
-            return "redirect:/profile/";
-        }
-    }
+		if (bindingresult.hasErrors()) {
+			model.addAttribute("title", "Login");
+			model.addAttribute("loggedInMessage", "Welcome ");
+			return "editpost";
+		} else {
+			blogPostsBusinessService.updateBlogPosts(blogPost);
+			blogPostsBusinessService.updateUserBlogPosts(blogPost);
+			return "redirect:/profile/";
+		}
+	}
 }

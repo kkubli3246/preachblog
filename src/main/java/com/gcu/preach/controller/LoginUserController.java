@@ -19,16 +19,14 @@ import com.gcu.preach.model.LoginModel;
 
 public class LoginUserController {
 
-
-
 	@GetMapping("/login")
-	public String display( Model model) {
-		
+	public String display(Model model) {
+
 		// Display login form view
 		model.addAttribute("message1", "Welcome to Preach Blog");
 		model.addAttribute("message2", "Login");
 		model.addAttribute("loginModel", new LoginModel());
-	
+
 		return "login";
 	}
 

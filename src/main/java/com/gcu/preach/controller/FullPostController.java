@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/fullpost")
 public class FullPostController {
 
-    @Autowired
-    private BlogPostsBusinessInterface blogPostsBusinessService;
+	@Autowired
+	private BlogPostsBusinessInterface blogPostsBusinessService;
 
-    @GetMapping("/{id}")
-    public String getPost(@PathVariable int id, Model model) {
+	@GetMapping("/{id}")
+	public String getPost(@PathVariable int id, Model model) {
 
-        // Display Full Blog Post form view
-        model.addAttribute("blogPost", blogPostsBusinessService.getBlogPostById(id));
-        return "fullpost";
-    }
+		// Display Full Blog Post form view
+		model.addAttribute("blogPost", blogPostsBusinessService.getBlogPostById(id));
+		return "fullpost";
+	}
 }

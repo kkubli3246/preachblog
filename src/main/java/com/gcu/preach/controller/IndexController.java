@@ -9,25 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import static com.gcu.preach.Business.UserBusinessService.userName;
 
-
 @Controller
 @RequestMapping("/index")
 public class IndexController {
 
+	@Autowired
+	private BlogPostsBusinessInterface blogPostsBusinessService;
 
+	@GetMapping("/")
+	public String display(Model model) {
 
-    @Autowired
-    private BlogPostsBusinessInterface blogPostsBusinessService;
+		// Display login form view
+		model.addAttribute("loggedInMessage", "Welcome to Preach Blog");
+		model.addAttribute("userName", userName);
+		model.addAttribute("loginPrompt", " Login to access blog");
+		model.addAttribute("blogPosts", blogPostsBusinessService.getAllBlogPosts());
 
-    @GetMapping("/")
-    public String display( Model model) {
-
-        // Display login form view
-        model.addAttribute("loggedInMessage", "Welcome to Preach Blog");
-        model.addAttribute("userName", userName);
-        model.addAttribute("loginPrompt", " Login to access blog");
-        model.addAttribute("blogPosts", blogPostsBusinessService.getAllBlogPosts());
-
-        return "index";
-    }
+		return "index";
+	}
 }

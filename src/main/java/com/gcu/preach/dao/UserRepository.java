@@ -4,13 +4,16 @@ import com.gcu.preach.entity.UserModel;
 
 import java.util.List;
 
-
 public interface UserRepository {
 
-    UserModel getUserByUsername(String username);
-    boolean create(UserModel userModel);
-    boolean update(UserModel userModel);
-    String delete(UserModel userModel);
-    List<UserModel> getAllUsers();
+	UserModel getUserByUsername(String username);
+
+	boolean create(UserModel userModel);
+
+	boolean update(UserModel userModel);
+
+	String delete(UserModel userModel);
+
+	List<UserModel> getAllUsers();
 
 }

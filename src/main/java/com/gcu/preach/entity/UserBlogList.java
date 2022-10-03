@@ -11,6 +11,6 @@ import java.util.List;
 @Setter
 public class UserBlogList {
 
-    private List<BlogPost> userBlogPosts;
+	private List<BlogPost> userBlogPosts;
 
 }
