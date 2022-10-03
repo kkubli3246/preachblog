@@ -1,12 +1,12 @@
 spring:
   datasource:
-    #url: jdbc:sqlserver://preachblog.database.windows.net:1433;database=preachblog;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    #username: preach_root@preachblog
-    #password: password3!
+    url: jdbc:sqlserver://preachblog.database.windows.net:1433;database=preachblog;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: preach_root@preachblog
+    password: password3!
     
     #local Database
-    url: jdbc:mysql://localhost:3306/preachblog
-    username: root
-    password: rootroot
+    #url: jdbc:mysql://localhost:3306/preachblog
+    #username: root
+    #password: rootroot
   main:  
     allow-circular-references: true
