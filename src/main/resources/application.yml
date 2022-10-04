@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://preachblog.database.windows.net:1433;database=preachblog;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    username: preach_root@preachblog
-    password: password3!
+    #Deployment MySQL
+    url: jdbc:mysql://127.0.0.1:55781/preachblog?serverTimezone=UTC
+    username: azure
+    password: 6#vWHD_$
     
     #local Database
     #url: jdbc:mysql://localhost:3306/preachblog
