@@ -1,9 +1,9 @@
 spring:
   datasource:
     #Deployment MySQL
-    #url: jdbc:mysql://127.0.0.1:55781/preachblog?serverTimezone=UTC
-    #username: azure
-    #password: 6#vWHD_$
+    url: jdbc:mysql://wzdpf4g6tdorwhhl:pdpeb5yeqy0ltnpz@au77784bkjx6ipju.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/hb6if6kshqrxoae0
+    username: wzdpf4g6tdorwhhl
+    password: pdpeb5yeqy0ltnpz
     
     #local Database
     #url: jdbc:mysql://localhost:3306/preachblog
