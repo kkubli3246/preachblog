@@ -4,23 +4,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
 public class BlogPost {
 
+	@Id
 	private int id;
 	@NotNull(message = "Title field cannot be empty!")
 	@Size(min = 1, max = 60, message = "Title field must be between 1 and 60 characters long!")
 	private String title;
 	@NotNull(message = "Content Preview field cannot be empty!")
-	@Size(min = 60, max = 10000, message = "Content Preview field must be between 60 and 150 characters long!")
+	@Size(min = 0, max = 10000, message = "Content Preview field must be between 60 and 150 characters long!")
 	private String contentPreview;
 	@NotNull(message = "Blog Content field cannot be empty!")
-	@Size(min = 100, max = 10000000, message = "Blog Content field must be between 1 and 600000 characters long!")
+	@Size(min = 1, max = 10000000, message = "Blog Content field must be between 1 and 600000 characters long!")
 	private String fullContent;
 	@NotNull(message = "Author field cannot be empty!")
 	@Size(min = 1, max = 30, message = "Author field must be between 1 and 30 characters long!")
@@ -28,6 +30,26 @@ public class BlogPost {
 	@NotNull(message = "Date field cannot be empty!")
 	@Size(min = 28, max = 29, message = "Date field must be between 4 and 20 characters long!")
 	private String date;
+
+	
+	public BlogPost(int id,
+			@NotNull(message = "Title field cannot be empty!") @Size(min = 1, max = 60, message = "Title field must be between 1 and 60 characters long!") String title,
+			@NotNull(message = "Content Preview field cannot be empty!") @Size(min = 1, max = 10000, message = "Content Preview field must be between 60 and 150 characters long!") String contentPreview,
+			@NotNull(message = "Blog Content field cannot be empty!") @Size(min = 1, max = 10000000, message = "Blog Content field must be between 1 and 600000 characters long!") String fullContent,
+			@NotNull(message = "Author field cannot be empty!") @Size(min = 1, max = 30, message = "Author field must be between 1 and 30 characters long!") String author,
+			@NotNull(message = "Date field cannot be empty!") @Size(min = 28, max = 29, message = "Date field must be between 4 and 20 characters long!") String date) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.contentPreview = contentPreview;
+		this.fullContent = fullContent;
+		this.author = author;
+		this.date = date;
+	}
+
+	public BlogPost() {
+		super();
+	}
 
 	public int getId() {
 		return id;

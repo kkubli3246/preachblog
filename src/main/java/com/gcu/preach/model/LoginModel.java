@@ -11,7 +11,7 @@ public class LoginModel {
 	private String userName;
 
 	@NotNull(message = "Password field cannot be empty!")
-	@Size(min = 1, max = 32, message = "Password must be between 1 and 32 characters long!")
+	@Size(min = 1, max = 10000, message = "Password must be between 1 and 32 characters long!")
 	private String password;
 
 	// Getters and Setters

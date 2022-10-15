@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static com.gcu.preach.Business.UserBusinessService.userName;
 
 @Controller
-@RequestMapping("/index")
 public class IndexController {
 
 	@Autowired
 	private BlogPostsBusinessInterface blogPostsBusinessService;
 
-	@GetMapping("/")
+	@GetMapping(value = {"/" , "/index"})
 	public String display(Model model) {
 
 		// Display login form view

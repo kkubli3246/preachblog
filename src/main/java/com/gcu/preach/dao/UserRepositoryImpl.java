@@ -10,22 +10,26 @@ import java.util.List;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
-	private static final String INSERT_USER_QUERY = "INSERT INTO usermodel(userName, userPassword, userFirstName, "
+	private static final String INSERT_USER_QUERY = "INSERT INTO UserModel(userName, userPassword, userFirstName, "
 			+ "userLastName, userEmail, userPhoneNumber, userAddress1, userAddress2, userCity, userState, "
 			+ "userZip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	private static final String UPDATE_USER_BY_USERNAME_QUERY = "UPDATE usermodel SET userName=?, userPassword=?, "
+	private static final String UPDATE_USER_BY_USERNAME_QUERY = "UPDATE UserModel SET userName=?, userPassword=?, "
 			+ "userFirstName=?, userLastName=?, userEmail=?, userPhoneNumber=?, userAddress1=?, userAddress2=?, "
 			+ "userCity=?, userState=?, userZip=? WHERE userName=?";
-	private static final String GET_USER_BY_USERNAME_QUERY = "SELECT * FROM usermodel WHERE userName=?";
-	private static final String GET_ALL_USERS_QUERY = "SELECT * FROM usermodel";
-	private static final String DELETE_USER_BY_USERNAME_QUERY = "DELETE FROM usermodel WHERE userName=?";
+	private static final String GET_USER_BY_USERNAME_QUERY = "SELECT * FROM UserModel WHERE userName=?";
+	private static final String GET_ALL_USERS_QUERY = "SELECT * FROM UserModel";
+	private static final String DELETE_USER_BY_USERNAME_QUERY = "DELETE FROM UserModel WHERE userName=?";
 
 	@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
+	
 
 	@Override
 	public UserModel getUserByUsername(String username) {
+		
+		
 		return jdbcTemplate.queryForObject(GET_USER_BY_USERNAME_QUERY,
 				(rs, rowNum) -> new UserModel(rs.getString("userName"), rs.getString("userPassword"),
 						rs.getString("userFirstName"), rs.getString("userLastName"), rs.getString("userEmail"),

@@ -1,13 +1,21 @@
 spring:
   datasource:
-    #Deployment MySQL
-    #url: jdbc:mysql://127.0.0.1:55781/preachblog?serverTimezone=UTC
-    #username: azure
-    #password: 6#vWHD_$
+    #url: jdbc:mysql://localhost:3306/preachblog
     
-    #local Database
-    url: jdbc:mysql://localhost:3306/preachblog
+    url: jdbc:mysql://awseb-e-tsm8prymqm-stack-awsebrdsdatabase-oob6dc3ndwvx.ceknh9jnmn8z.us-east-1.rds.amazonaws.com:3306/ebdb?useUnicode=true&useJDBCCompliantTimezone
     username: root
-    password: rootroot
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop 
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl 
+    show-sql: true
+    database: mysql
+    open-in-view: true
   main:  
     allow-circular-references: true
+  
+  
+
+

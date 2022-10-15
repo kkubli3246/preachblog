@@ -26,7 +26,7 @@ public class PostBlogController {
 
 	@GetMapping("/")
 	public String display(Model model) {
-		String date = Calendar.getInstance().getTime().toString().formatted("%d/%m/%Y");
+		String date = Calendar.getInstance().getTime().toString();//.formatted("%d/%m/%Y");
 		BlogPost blogPost = new BlogPost();
 		blogPost.setId(blogPostsBusinessService.getNextBlogId());
 		blogPost.setDate(date);
@@ -41,10 +41,13 @@ public class PostBlogController {
 
 	@PostMapping("/doPost")
 	public String doPost(@Valid BlogPost blogPost, BindingResult bindingresult, Model model) {
+		
 		if (bindingresult.hasErrors()) {
+			System.out.println(bindingresult.toString());
 			model.addAttribute("headerText", "Preach It!!");
 			return "postBlog";
 		} else {
+			
 			// Save to blogposts table
 			blogPostsBusinessService.createBlogPosts(blogPost);
 			// save to userblogposts table

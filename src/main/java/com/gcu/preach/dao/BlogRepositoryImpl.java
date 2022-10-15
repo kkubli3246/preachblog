@@ -12,20 +12,20 @@ import java.util.List;
 public class BlogRepositoryImpl implements BlogRepository, UserBlogRepository {
 
 	// User Blog Posts
-	private static final String INSERT_USER_BLOG_POST_QUERY = "INSERT INTO userblogpost(id, title, contentPreview, fullContent, author, date) VALUES (?, ?, ?, ?, ?, ?)";
-	private static final String GET_USER_BLOG_POST_BY_ID_QUERY = "SELECT * FROM userblogpost WHERE id=?";
-	private static final String GET_ALL_USER_BLOG_POSTS_QUERY = "SELECT * FROM userblogpost WHERE author=?";
-	private static final String GET_NEXT_USER_BLOG_POST_ID_QUERY = "SELECT MAX(id) FROM userblogpost";
-	private static final String UPDATE_USER_BLOG_POST_BY_ID_QUERY = "UPDATE userblogpost SET title=?, contentPreview=?, fullContent=?, author=?, date=? WHERE id=?";
-	private static final String DELETE_USER_BLOG_POST_BY_ID_QUERY = "DELETE FROM userblogpost WHERE id=?";
+	private static final String INSERT_USER_BLOG_POST_QUERY = "INSERT INTO UserBlogPost(id, title, contentPreview, fullContent, author, date) VALUES (?, ?, ?, ?, ?, ?)";
+	private static final String GET_USER_BLOG_POST_BY_ID_QUERY = "SELECT * FROM UserBlogPost WHERE id=?";
+	private static final String GET_ALL_USER_BLOG_POSTS_QUERY = "SELECT * FROM UserBlogPost WHERE author=?";
+	private static final String GET_NEXT_USER_BLOG_POST_ID_QUERY = "SELECT MAX(id) FROM UserBlogPost";
+	private static final String UPDATE_USER_BLOG_POST_BY_ID_QUERY = "UPDATE UserbBlogPost SET title=?, contentPreview=?, fullContent=?, author=?, date=? WHERE id=?";
+	private static final String DELETE_USER_BLOG_POST_BY_ID_QUERY = "DELETE FROM UserBlogPost WHERE id=?";
 
 	// All Blog Posts
-	private static final String INSERT_BLOG_POST_QUERY = "INSERT INTO blogpost(id, title, contentPreview, fullContent, author, date) VALUES (?, ?, ?, ?, ?, ?)";
-	private static final String GET_BLOG_POST_BY_ID_QUERY = "SELECT * FROM blogpost WHERE id=?";
-	private static final String GET_ALL_BLOG_POSTS_QUERY = "SELECT * FROM blogpost";
-	private static final String GET_NEXT_BLOG_POST_ID_QUERY = "SELECT MAX(id) FROM blogpost";
-	private static final String UPDATE_BLOG_POST_BY_ID_QUERY = "UPDATE blogpost SET title=?, contentPreview=?, fullContent=?, author=?, date=? WHERE id=?";
-	private static final String DELETE_BLOG_POST_BY_ID_QUERY = "DELETE FROM blogpost WHERE id=?";
+	private static final String INSERT_BLOG_POST_QUERY = "INSERT INTO BlogPost(id, title, contentpreview, fullcontent, author, date) VALUES (?, ?, ?, ?, ?, ?)";
+	private static final String GET_BLOG_POST_BY_ID_QUERY = "SELECT * FROM BlogPost WHERE id=?";
+	private static final String GET_ALL_BLOG_POSTS_QUERY = "SELECT * FROM BlogPost";
+	private static final String GET_NEXT_BLOG_POST_ID_QUERY = "SELECT MAX(id) FROM BlogPost";
+	private static final String UPDATE_BLOG_POST_BY_ID_QUERY = "UPDATE BlogPost SET title=?, contentpreview=?, fullcontent=?, author=?, date=? WHERE id=?";
+	private static final String DELETE_BLOG_POST_BY_ID_QUERY = "DELETE FROM BlogPost WHERE id=?";
 
 	@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 	@Autowired
@@ -52,16 +52,16 @@ public class BlogRepositoryImpl implements BlogRepository, UserBlogRepository {
 	@Override
 	public BlogPost getBlogPostById(int id) {
 		return jdbcTemplate.queryForObject(GET_BLOG_POST_BY_ID_QUERY,
-				(rs, rowNum) -> new BlogPost(rs.getInt("id"), rs.getString("title"), rs.getString("contentPreview"),
-						rs.getString("fullContent"), rs.getString("author"), rs.getString("date")),
+				(rs, rowNum) -> new BlogPost(rs.getInt("id"), rs.getString("title"), rs.getString("contentpreview"),
+						rs.getString("fullcontent"), rs.getString("author"), rs.getString("date")),
 				id);
 	}
 
 	@Override
 	public List<BlogPost> getAllBlogPosts() {
 		return jdbcTemplate.query(GET_ALL_BLOG_POSTS_QUERY,
-				(rs, rowNum) -> new BlogPost(rs.getInt("id"), rs.getString("title"), rs.getString("contentPreview"),
-						rs.getString("fullContent"), rs.getString("author"), rs.getString("date")));
+				(rs, rowNum) -> new BlogPost(rs.getInt("id"), rs.getString("title"), rs.getString("contentpreview"),
+						rs.getString("fullcontent"), rs.getString("author"), rs.getString("date")));
 	}
 
 	@Override

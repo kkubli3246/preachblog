@@ -37,6 +37,10 @@ public class RegisterUserController {
 		String password = userModel.getUserPassword();
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String hashedPassword = passwordEncoder.encode(password);
+		
+		
+		
+		
 		userModel.setUserPassword(hashedPassword);
 
 		if (bindingresult.hasErrors()) {

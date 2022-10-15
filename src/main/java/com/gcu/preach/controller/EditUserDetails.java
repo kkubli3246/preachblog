@@ -26,6 +26,7 @@ public class EditUserDetails {
 
 	@GetMapping("/{userName}")
 	public String getUser(@PathVariable String userName, Model model) {
+		
 		model.addAttribute("editPostMessage", "Edit User Details");
 		UserModel userModel = service.getUserByUsername(userName);
 		userModel.setUserName(userName);

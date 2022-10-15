@@ -4,6 +4,9 @@ import lombok.*;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,6 +14,7 @@ import java.util.List;
 @Setter
 public class UserBlogList {
 
+	
 	private List<BlogPost> userBlogPosts;
 
 }
