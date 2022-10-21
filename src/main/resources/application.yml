@@ -13,6 +13,10 @@ spring:
     show-sql: true
     database: mysql
     open-in-view: true
+    #local Database
+    #url: jdbc:mysql://localhost:3306/preachblog
+    #username: root
+    #password: rootroot
   main:  
     allow-circular-references: true
   
