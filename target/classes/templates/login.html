@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="jttp://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+  <head>
+	<meta charset="UTF-8">
+	<title>Register User</title>
+	<link rel="stylesheet" href="../static/css/login.css" th:href="@{/css/login.css}">
+
+
+  </head>
+  <body>
+  	<div layout:fragment="content">
+		<div class="loginContent">
+
+			<h1 th:text="${message3}">Login Failed Default Message</h1>
+			<h2 th:text="${message1}">Welcome to the login page</h2>
+			<h2 th:text="${message2}">Welcome to the login page</h2>
+			<div th:if="${param.error}">
+				<h2 th:text="${param.error}">Login Failed</h2>
+			</div>
+			<form th:action="@{/login}" method="post">
+				<table>
+					<tr>
+						<td>User Name:</td><td><input type="text" name="username" id="username" placeholder="UserName" required ></td>
+					</tr>
+					<tr>
+						<td>Password:</td><td><input type="text"  name="password" id="password" placeholder="Password" required></td>
+					</tr>
+					<tr>
+						<td align="center "colspan="2"><input type="submit" value="Sign In" style="margin-top: 20px;"/></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+  </body>
+</html>
+
+

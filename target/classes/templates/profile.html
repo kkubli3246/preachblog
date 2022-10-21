@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xml:lang="en" xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.utlraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/profile.css" th:href="@{/css/profile.css}">
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="body-content">
+        <div class="body-content__sidebar">
+            <div class="sidebar__sidebarTop">
+                <img class="sidebar__sidebarTop__head-splasher"
+                        src="https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1
+                        &ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1129&q=80"
+                        alt="profile">
+                <img class="sidebarTop_avatar-icon" th:src="@{/img/ic_avatar.png}" alt="avatar icon"/>
+                <h2 th:text="${userModel.getUserName}"></h2>
+                <h5 th:text="${userModel.getUserEmail}"></h5>
+                <h5 th:text="${userModel.getUserFirstName}"></h5>
+                <h5 th:text="${userModel.getUserLastName}"></h5>
+                <h5 th:text="${userModel.getUserPhoneNumber}"></h5>
+                <h5 th:text="${userModel.getUserAddress1}"></h5>
+                <h5 th:text="${userModel.getUserAddress2} ?: null"></h5>
+                <h5 th:text="${userModel.getUserCity}"></h5>
+                <h5 th:text="${userModel.getUserState}"></h5>
+                <h5 th:text="${userModel.getUserZip}"></h5>
+            </div>
+            <div class="sidebar__sidebarBottom">
+                <div class="sidebar__sidebarBottom__label">
+                    <h3 th:text="${sidebarBottomLabel}"></h3>
+                </div>
+                <div class="sidebar__bottom__option-links">
+                    <a th:href="@{'/edituserdetails/' + ${userModel.getUserName}}">Edit Profile</a>
+                </div>
+                <div class="sidebar__bottom__option-links">
+                    <a th:href="@{'/profile/'}">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="body-content__feed">
+            <h1 class="feed__header-text" th:text="${feedHeaderText}">I am the feed</h1>
+            <form action="#" th:action="@{doDeletePost}" th:object="${blogPost}" method="post">
+                <table class="post__container" th:each="userBlogPost: ${userBlogPosts}">
+                    <tr>
+                        <td>
+                            <div class="post__container-header">
+                                <div class="feed__post-header-title">
+                                    <a th:href="@{'/fullpost/' + ${userBlogPost.id}}">
+                                        <h2 class="post-title" th:text="${userBlogPost.getTitle}"></h2>
+                                    </a>
+                                </div>
+                                <div class="action__buttons">
+                                    <a th:href="@{'/editpost/' + ${userBlogPost.id}}">
+                                        <img class="action__buttons-delete"
+                                             th:src="@{/img/ic_edit.png}" alt="edit post icon"/>
+                                    </a>
+                                    <a th:href="@{'/deletepost/' + ${userBlogPost.id}}" >
+                                        <img class="post__container-header__avatar"
+                                             th:src="@{/img/ic_delete.png}" alt="delete post icon"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p  class="post-preview-content-text" th:text="${userBlogPost.getContentPreview}">Problems look mighty small from 150 miles up</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="post-meta">
+                                Posted by
+                                <span class="post-author" th:text="${userBlogPost.getAuthor}"> Author </span>
+                                on <span th:text="${userBlogPost.getDate}">September 24, 2022</span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
