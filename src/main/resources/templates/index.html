@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="https://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+  <head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+  </head>
+  <body>
+  	<div layout:fragment="content">
+        <div class="content__welcome-message">
+
+            <h1 class="logged-in-message">
+                <span  th:text="${loggedInMessage}">Welcome to the home page</span>
+                <span  class="userName" th:if="${userName} != null" th:text="${userName}">User Name or Login Prompt</span>
+                <span id="loginPrompt" class="userName" th:if="${userName} == ''" th:text="${loginPrompt}">User Name or Login Prompt</span>
+            </h1>
+        </div>
+        <div class="body-content">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center" >
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- Post preview-->
+                       <table class="post__container" th:each="blogPost: ${blogPosts}">
+                           <tr>
+                               <td>
+                                   <a th:href="@{'/fullpost/' + ${blogPost.id}}">
+                                       <h2 class="post-title" th:text="${blogPost.getTitle}">Man must explore, and this is exploration at its greatest</h2>
+                                   </a>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <p  class="post-preview-content-text" th:text="${blogPost.getContentPreview}">Problems look mighty small from 150 miles up</p>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <p class="post-meta">
+                                       Posted by
+                                       <span class="post-author" th:text="${blogPost.getAuthor}"> Author </span>
+                                       on <span th:text="${blogPost.getDate}">September 24, 2022</span>
+                                   </p>
+                               </td>
+                           </tr>
+                       </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+  	</div>
+  </body>
+</html>
