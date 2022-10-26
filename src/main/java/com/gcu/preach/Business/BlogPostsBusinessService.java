@@ -34,6 +34,7 @@ public class BlogPostsBusinessService implements BlogPostsBusinessInterface {
 	@Override
 	public void updateBlogPosts(BlogPost blogPost) {
 		service.updateBlogPosts(blogPost);
+		System.out.println(blogPost.getLikes());
 
 	}
 

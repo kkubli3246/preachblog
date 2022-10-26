@@ -1,8 +1,8 @@
 spring:
   datasource:
     #url: jdbc:mysql://localhost:3306/preachblog
-    
-    url: jdbc:mysql://awseb-e-tsm8prymqm-stack-awsebrdsdatabase-oob6dc3ndwvx.ceknh9jnmn8z.us-east-1.rds.amazonaws.com:3306/ebdb?useUnicode=true&useJDBCCompliantTimezone
+    #url: jdbc:mysql://awseb-e-fsxvpkcw3i-stack-awsebrdsdatabase-ffq2plibi5uj.c8wrveuy7div.us-west-2.rds.amazonaws.com:3306/sys?useUnicode=true&useJDBCCompliantTimezone
+    url: jdbc:mysql://edbd.c8wrveuy7div.us-west-2.rds.amazonaws.com:3306/ebdb?useUnicode=true&useJDBCCompliantTimezone
     username: root
     password: password
   jpa:
